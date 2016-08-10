@@ -1,5 +1,6 @@
 // require app scss for compilation
 import '../stylesheets/application.scss'
+
 // import react
 import React from 'react';
 import {render} from 'react-dom';
