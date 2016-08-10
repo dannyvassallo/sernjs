@@ -5,6 +5,9 @@
   * NodeJS
   * NPM
   * Express
+  * Webpack
+  * Babel
+  * React
 
 ####Getting Started
 
@@ -12,5 +15,13 @@ In your terminal run the following:
 
 ```shell
 npm install
-node app.js
+npm run build
 ```
+
+Now in a new terminal tab run:
+
+```shell
+npm start
+```
+
+Both the build process and server have watchers -- no need to reload!

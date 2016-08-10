@@ -4,7 +4,9 @@
   "description": "A Boilerplate for Disney Contests",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/webpack -d --watch",
+    "start": "./node_modules/.bin/nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,11 @@
   },
   "homepage": "https://github.com/dannyvassallo/disneycontest#readme",
   "dependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
     "express": "^4.14.0",
+    "path": "^0.12.7",
     "webpack": "^1.13.1"
   }
 }
