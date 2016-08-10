@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack -d --watch",
+    "build": "./node_modules/.bin/webpack -p --watch",
+    "dev": "./node_modules/.bin/webpack -d --watch",
     "start": "./node_modules/.bin/nodemon app.js"
   },
   "repository": {
@@ -24,6 +25,8 @@
     "babel-preset-react": "^6.11.1",
     "express": "^4.14.0",
     "path": "^0.12.7",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
     "webpack": "^1.13.1"
   }
 }
