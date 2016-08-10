@@ -9,6 +9,7 @@
   * Babel
   * React
   * SASS
+  * Nodemon
 
 ####Getting Started In Development
 
