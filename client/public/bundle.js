@@ -69,6 +69,12 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	// require app scss for compilation
+	__webpack_require__(/*! ../stylesheets/application.scss */ 176);
+	// import react
+	
+	// import additional components
+	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -22102,6 +22108,15 @@
 	}(_react2.default.Component);
 	
 	exports.default = AwesomeComponent;
+
+/***/ },
+/* 176 */
+/*!*********************************************!*\
+  !*** ./client/stylesheets/application.scss ***!
+  \*********************************************/
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

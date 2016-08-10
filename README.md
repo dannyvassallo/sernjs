@@ -8,6 +8,7 @@
   * Webpack
   * Babel
   * React
+  * SASS
 
 ####Getting Started In Development
 

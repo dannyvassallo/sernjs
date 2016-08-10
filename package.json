@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack -p --watch",
-    "dev": "./node_modules/.bin/webpack -d --watch",
+    "build": "./node_modules/.bin/webpack -p --progress --colors --watch",
+    "dev": "./node_modules/.bin/webpack -d --progress --colors --watch",
     "start": "./node_modules/.bin/nodemon app.js"
   },
   "repository": {
@@ -28,5 +28,11 @@
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "sass-loader": "^4.0.0",
+    "style-loader": "^0.13.1"
   }
 }
