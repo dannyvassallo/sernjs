@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/webpack -p --watch",
-    "dev": "./node_modules/.bin/webpack -d --watch",
+    "build": "./node_modules/.bin/webpack -p --progress --colors --watch",
+    "dev": "./node_modules/.bin/webpack -d --progress --colors --watch",
     "start": "./node_modules/.bin/nodemon app.js"
   },
   "repository": {
