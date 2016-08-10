@@ -1,0 +1,22 @@
+{
+  "name": "disneycontestboilerplate",
+  "version": "1.0.0",
+  "description": "A Boilerplate for Disney Contests",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyvassallo/disneycontest.git"
+  },
+  "author": "Danny Vassallo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannyvassallo/disneycontest/issues"
+  },
+  "homepage": "https://github.com/dannyvassallo/disneycontest#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
