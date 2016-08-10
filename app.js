@@ -5,6 +5,8 @@ var path = require('path');
 var BUILD_DIR = path.resolve(__dirname, './client/public');
 var APP_DIR = path.resolve(__dirname, './client/app');
 
+app.use(express.static(path.join(__dirname, './client/public')));
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(BUILD_DIR + '/index.html'));
 });
