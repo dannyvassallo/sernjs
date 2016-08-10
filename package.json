@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dannyvassallo/disneycontest#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "webpack": "^1.13.1"
   }
 }
