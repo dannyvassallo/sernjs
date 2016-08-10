@@ -1,18 +1,21 @@
 // require app scss for compilation
-require('../stylesheets/application.scss');
+import '../stylesheets/application.scss'
+
 // import react
 import React from 'react';
 import {render} from 'react-dom';
 // import additional components
-import AwesomeComponent from './components/AwesomeComponent.jsx';
+import NavBar from './components/NavBar.jsx';
 
 class App extends React.Component {
   render () {
     return (
-      <div>
-        <p> Hello React!</p>
-        <AwesomeComponent />
-      </div>
+        <div>
+          <NavBar />
+          <main>
+            <p>Content</p>
+          </main>
+        </div>
     );
   }
 }
