@@ -48,7 +48,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(/*! materialize-loader!./materialize-config/materialize.config.js */1);
-	module.exports = __webpack_require__(/*! /Volumes/Graphic Design/sites/disneycontest/client/app/main.jsx */26);
+	module.exports = __webpack_require__(/*! /Users/danvassallo/Desktop/disneycontest/client/app/main.jsx */26);
 
 
 /***/ },
@@ -623,9 +623,9 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Index = __webpack_require__(/*! ./components/Index.jsx */ 267);
+	var _Home = __webpack_require__(/*! ./components/Home.jsx */ 269);
 	
-	var _Index2 = _interopRequireDefault(_Index);
+	var _Home2 = _interopRequireDefault(_Home);
 	
 	var _About = __webpack_require__(/*! ./components/About.jsx */ 268);
 	
@@ -641,8 +641,8 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Index2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default })
 	  )
 	), target);
 
@@ -28295,10 +28295,6 @@
 	
 	var _NavBar2 = _interopRequireDefault(_NavBar);
 	
-	var _Index = __webpack_require__(/*! ./Index.jsx */ 267);
-	
-	var _Index2 = _interopRequireDefault(_Index);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28331,7 +28327,7 @@
 	        _react2.default.createElement(
 	          'main',
 	          null,
-	          _react2.default.createElement(_Index2.default, null)
+	          this.props.children
 	        )
 	      );
 	    }
@@ -28381,6 +28377,8 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // import jquery and enable sidenav
 	
 	
+	// import main from './main.jsx';
+	
 	var NavBar = function (_React$Component) {
 	  _inherits(NavBar, _React$Component);
 	
@@ -28392,6 +28390,8 @@
 	
 	  _createClass(NavBar, [{
 	    key: 'render',
+	
+	    // const { main } = this.props;
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
@@ -28476,57 +28476,7 @@
 	exports.default = NavBar;
 
 /***/ },
-/* 267 */
-/*!*****************************************!*\
-  !*** ./client/app/components/Index.jsx ***!
-  \*****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _react = __webpack_require__(/*! react */ 27);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Index = _react2.default.createClass({
-	  displayName: "Index",
-	
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "container" },
-	      _react2.default.createElement(
-	        "div",
-	        { className: "row" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "col s12" },
-	          _react2.default.createElement(
-	            "h2",
-	            null,
-	            "Index"
-	          ),
-	          _react2.default.createElement(
-	            "p",
-	            null,
-	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	          ),
-	          _react2.default.createElement(
-	            "p",
-	            null,
-	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = Index;
-
-/***/ },
+/* 267 */,
 /* 268 */
 /*!*****************************************!*\
   !*** ./client/app/components/About.jsx ***!
@@ -28576,6 +28526,57 @@
 	});
 	
 	module.exports = About;
+
+/***/ },
+/* 269 */
+/*!****************************************!*\
+  !*** ./client/app/components/Home.jsx ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Home = _react2.default.createClass({
+	  displayName: "Home",
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col s12" },
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Index"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Home;
 
 /***/ }
 /******/ ]);

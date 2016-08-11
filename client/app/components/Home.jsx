@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Index = React.createClass({
+var Home = React.createClass({
   render: function() {
       return (
         <div className="container">
@@ -22,4 +22,4 @@ var Index = React.createClass({
     }
 });
 
-module.exports = Index;
+module.exports = Home;

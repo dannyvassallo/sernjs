@@ -5,7 +5,6 @@ import React from 'react';
 import {render} from 'react-dom';
 // import additional components
 import NavBar from './NavBar.jsx';
-import Index from './Index.jsx';
 
 class App extends React.Component {
   render () {
@@ -13,7 +12,7 @@ class App extends React.Component {
         <div>
           <NavBar />
           <main>
-            <Index />
+            {this.props.children}
           </main>
         </div>
     );
