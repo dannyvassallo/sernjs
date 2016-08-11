@@ -32,4 +32,15 @@ To build the JS out:
 npm run build
 ```
 
-Both the build process and server have watchers -- no need to reload!
+Both the build/dev process and server have watchers -- no need to reload unless you change the materialize variables!!
+
+####Deployment
+
+On first run:
+```
+heroku create MY_APP
+```
+
+From there:
+
+`git push heroku master` or `git push heroku branchname:master`
