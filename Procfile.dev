@@ -1,2 +1,2 @@
-webpack: npm run dev
 server: npm start
+webpack: npm run dev
