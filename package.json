@@ -27,19 +27,23 @@
     "materialize-css": "^0.97.7",
     "path": "^0.12.7",
     "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react-dom": "^15.3.0",
+    "body-parser": "^1.15.2",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
-    "nodemon": "^1.10.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
+    "foreman": "^1.4.1",
+    "materialize-loader": "git://github.com/dannyvassallo/materialize-loader.git#loader",
+    "node-sass": "^3.8.0",
+    "nodemon": "^1.10.0",
+    "reload": "^1.0.1",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "node-sass": "^3.8.0",
-    "materialize-loader": "git://github.com/dannyvassallo/materialize-loader.git#loader",
-    "webpack": "^1.13.1",
-    "foreman": "^1.4.1"
+    "watch": "^0.19.1",
+    "webpack": "^1.13.1"
   }
 }
