@@ -29,6 +29,8 @@ npm install -g foreman
 npm start
 ```
 
+Visit `localhost:5000` in your browser.
+
 Both the build/dev process and server have watchers -- no need to reload your browser!
 
 ####Deployment
