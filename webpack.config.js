@@ -3,7 +3,7 @@ var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 
-var BUILD_DIR = path.resolve(__dirname, './client/public');
+var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var STYLE_DIR = path.resolve(__dirname, './client/stylesheets');
 
