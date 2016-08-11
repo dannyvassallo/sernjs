@@ -1,5 +1,8 @@
 #Disney Contest Boilerplate
 
+React, Node, Express, and Materialize boilerplate with live-reloading
+capability server and clientside.
+
 ###Technologies Used
 
   * NodeJS
