@@ -16,29 +16,26 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
-  module : {
-    loaders : [
-      {
-        test : /\.jsx?/,
-        include : APP_DIR,
-        loader : 'babel'
-      },
-      {
-        test: /\.scss$/,
-        include : STYLE_DIR,
-        loader: ExtractTextPlugin.extract('css!sass')
-      },
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader:"url?limit=10000&mimetype=application/font-woff"
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file"
-      }
-    ]
+  module: {
+    loaders: [{
+      test: /\.jsx?/,
+      include: APP_DIR,
+      loader: 'babel'
+    }, {
+      test: /\.scss$/,
+      include: STYLE_DIR,
+      loader: ExtractTextPlugin.extract('css!sass')
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url?limit=10000&mimetype=application/font-woff"
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file"
+    }]
   },
   alias: {
-    'react$': path.join(__dirname, 'node_modules', 'react','dist','react.min.js'),
-    'react-dom$': path.join(__dirname, 'node_modules', 'react-dom','dist','react-dom.min.js')
+    'react$': path.join(__dirname, 'node_modules', 'react', 'dist', 'react.min.js'),
+    'react-dom$': path.join(__dirname, 'node_modules', 'react-dom', 'dist', 'react-dom.min.js')
   },
   plugins: [
     new ExtractTextPlugin('style.css', {
@@ -46,8 +43,11 @@ var config = {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-         NODE_ENV: JSON.stringify("production")
-       }
+        // comment this out for longer errors in dev
+        // but comment back in for production to
+        // shrink bundle size
+        NODE_ENV: JSON.stringify("production")
+      }
     })
   ]
 };
