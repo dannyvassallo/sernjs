@@ -619,15 +619,32 @@
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 201);
 	
-	var _reactRouter2 = _interopRequireDefault(_reactRouter);
-	
 	var _App = __webpack_require__(/*! ./components/App.jsx */ 264);
 	
 	var _App2 = _interopRequireDefault(_App);
 	
+	var _Index = __webpack_require__(/*! ./components/Index.jsx */ 267);
+	
+	var _Index2 = _interopRequireDefault(_Index);
+	
+	var _About = __webpack_require__(/*! ./components/About.jsx */ 268);
+	
+	var _About2 = _interopRequireDefault(_About);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_reactDom2.default.render(_react2.default.createElement(_App2.default), document.getElementById('app'));
+	var target = document.getElementById('app');
+	
+	_reactDom2.default.render(_react2.default.createElement(
+	  _reactRouter.Router,
+	  { history: _reactRouter.browserHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _App2.default },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Index2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _About2.default })
+	  )
+	), target);
 
 /***/ },
 /* 27 */
@@ -28268,19 +28285,19 @@
 	
 	__webpack_require__(/*! ../../stylesheets/application.scss */ 265);
 	
-	var _reactFavicon = __webpack_require__(/*! react-favicon */ 266);
-	
-	var _reactFavicon2 = _interopRequireDefault(_reactFavicon);
-	
 	var _react = __webpack_require__(/*! react */ 27);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
 	var _reactDom = __webpack_require__(/*! react-dom */ 61);
 	
-	var _NavBar = __webpack_require__(/*! ./NavBar.jsx */ 267);
+	var _NavBar = __webpack_require__(/*! ./NavBar.jsx */ 266);
 	
 	var _NavBar2 = _interopRequireDefault(_NavBar);
+	
+	var _Index = __webpack_require__(/*! ./Index.jsx */ 267);
+	
+	var _Index2 = _interopRequireDefault(_Index);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28310,16 +28327,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reactFavicon2.default, { url: ['https://github.com/apple-touch-icon-180x180.png', 'https://scotch.io/wp-content/themes/scotchpress/img/favicons/favicon-228.png'] }),
 	        _react2.default.createElement(_NavBar2.default, null),
 	        _react2.default.createElement(
 	          'main',
 	          null,
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Content'
-	          )
+	          _react2.default.createElement(_Index2.default, null)
 	        )
 	      );
 	    }
@@ -28341,174 +28353,12 @@
 
 /***/ },
 /* 266 */
-/*!***********************************************!*\
-  !*** ./~/react-favicon/dist/react-favicon.js ***!
-  \***********************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var React = __webpack_require__(/*! react */ 27);
-	var linkEl;
-	
-	function drawIcon(src, num, cb) {
-	  var img = document.createElement('img');
-	  img.onload = function () {
-	    var canvas = document.createElement('canvas');
-	    canvas.width = img.width;
-	    canvas.height = img.height;
-	
-	    var context = canvas.getContext('2d');
-	    context.clearRect(0, 0, img.width, img.height);
-	    context.drawImage(img, 0, 0);
-	
-	    var top = img.height - 9,
-	        left = img.width - 7 - 1,
-	        bottom = 16,
-	        right = 16,
-	        radius = 2;
-	
-	    context.fillStyle = '#F03D25';
-	    context.strokeStyle = '#F03D25';
-	    context.lineWidth = 1;
-	
-	    context.beginPath();
-	    context.moveTo(left + radius, top);
-	    context.quadraticCurveTo(left, top, left, top + radius);
-	    context.lineTo(left, bottom - radius);
-	    context.quadraticCurveTo(left, bottom, left + radius, bottom);
-	    context.lineTo(right - radius, bottom);
-	    context.quadraticCurveTo(right, bottom, right, bottom - radius);
-	    context.lineTo(right, top + radius);
-	    context.quadraticCurveTo(right, top, right - radius, top);
-	    context.closePath();
-	    context.fill();
-	
-	    context.font = 'bold 10px arial';
-	    context.fillStyle = '#FFF';
-	    context.textAlign = 'right';
-	    context.textBaseline = 'top';
-	    context.fillText(num, 15, 6);
-	
-	    cb(null, context.canvas.toDataURL());
-	  };
-	  img.src = src;
-	}
-	
-	var Favicon = React.createClass({
-	  displayName: 'Favicon',
-	
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      alertCount: null,
-	      animated: true,
-	      animationDelay: 500
-	    };
-	  },
-	
-	  getInitialState: function getInitialState() {
-	    return {
-	      animationIndex: 0,
-	      animationLoop: null,
-	      animationRunning: false
-	    };
-	  },
-	
-	  statics: {
-	    mountedInstances: [],
-	
-	    getActiveInstance: function getActiveInstance() {
-	      return Favicon.mountedInstances[Favicon.mountedInstances.length - 1];
-	    },
-	
-	    draw: function draw() {
-	      if (typeof document === 'undefined') return;
-	
-	      if (typeof linkEl === 'undefined') {
-	        var head = document.getElementsByTagName('head')[0];
-	        linkEl = document.createElement('link');
-	        linkEl.type = 'image/x-icon';
-	        linkEl.rel = 'icon';
-	
-	        // remove existing favicons
-	        var links = head.getElementsByTagName("link");
-	        for (var i = links.length; --i >= 0; /\bicon\b/i.test(links[i].getAttribute("rel")) && head.removeChild(links[i])) {}
-	
-	        head.appendChild(linkEl);
-	      }
-	
-	      var activeInstance = Favicon.getActiveInstance();
-	      var currentUrl;
-	
-	      if (activeInstance.props.url instanceof Array) {
-	        currentUrl = activeInstance.props.url[activeInstance.state.animationIndex];
-	      } else {
-	        currentUrl = activeInstance.props.url;
-	      }
-	
-	      if (activeInstance.props.alertCount) {
-	        drawIcon(currentUrl, activeInstance.props.alertCount, function (err, url) {
-	          linkEl.href = url;
-	        });
-	      } else {
-	        linkEl.href = currentUrl;
-	      }
-	    },
-	
-	    update: function update() {
-	      if (typeof document === 'undefined') return;
-	
-	      var activeInstance = Favicon.getActiveInstance();
-	      var isAnimated = activeInstance.props.url instanceof Array && activeInstance.props.animated;
-	
-	      // clear any running animations
-	      var intervalId = null;
-	      clearInterval(activeInstance.state.animationLoop);
-	
-	      if (isAnimated) {
-	        var animateFavicon = function animateFavicon() {
-	          var nextAnimationIndex = (activeInstance.state.animationIndex + 1) % activeInstance.props.url.length;
-	          Favicon.draw();
-	          activeInstance.setState({ animationIndex: nextAnimationIndex });
-	        };
-	        intervalId = setInterval(animateFavicon, activeInstance.props.animationDelay);
-	        animateFavicon();
-	      } else {
-	        Favicon.draw();
-	      }
-	
-	      activeInstance.setState({ animationLoop: intervalId });
-	    }
-	  },
-	
-	  componentWillMount: function componentWillMount() {
-	    Favicon.mountedInstances.push(this);
-	    Favicon.update();
-	  },
-	
-	  componentDidUpdate: function componentDidUpdate(prevProps) {
-	    if (prevProps.url === this.props.url && prevProps.animated === this.props.animated && prevProps.alertCount === this.props.alertCount) return;
-	
-	    Favicon.update();
-	  },
-	
-	  render: function render() {
-	    return null;
-	  }
-	});
-	
-	module.exports = Favicon;
-	
-
-
-/***/ },
-/* 267 */
 /*!******************************************!*\
   !*** ./client/app/components/NavBar.jsx ***!
   \******************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -28519,6 +28369,8 @@
 	var _react = __webpack_require__(/*! react */ 27);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 201);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -28539,111 +28391,75 @@
 	  }
 	
 	  _createClass(NavBar, [{
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
-	        { className: "navbar-fixed" },
+	        'div',
+	        { className: 'navbar-fixed' },
 	        _react2.default.createElement(
-	          "nav",
+	          'nav',
 	          null,
 	          _react2.default.createElement(
-	            "div",
-	            { className: "container" },
+	            'div',
+	            { className: 'container' },
 	            _react2.default.createElement(
-	              "div",
-	              { className: "nav-wrapper" },
+	              'div',
+	              { className: 'nav-wrapper' },
 	              _react2.default.createElement(
-	                "a",
-	                { href: "#!", className: "brand-logo" },
-	                "Logo"
+	                _reactRouter.Link,
+	                { to: '/', className: 'brand-logo' },
+	                'Logo'
 	              ),
 	              _react2.default.createElement(
-	                "a",
-	                { href: "#", "data-activates": "mobile-demo", className: "button-collapse" },
+	                'a',
+	                { href: '#', 'data-activates': 'mobile-demo', className: 'button-collapse' },
 	                _react2.default.createElement(
-	                  "i",
-	                  { className: "material-icons" },
-	                  "menu"
+	                  'i',
+	                  { className: 'material-icons' },
+	                  'menu'
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "ul",
-	                { className: "right hide-on-med-and-down" },
+	                'ul',
+	                { className: 'right hide-on-med-and-down' },
 	                _react2.default.createElement(
-	                  "li",
+	                  'li',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "sass.html" },
-	                    "Sass"
+	                    _reactRouter.Link,
+	                    { to: 'about' },
+	                    'Sass'
 	                  )
 	                ),
 	                _react2.default.createElement(
-	                  "li",
+	                  'li',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "badges.html" },
-	                    "Components"
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  "li",
-	                  null,
-	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "collapsible.html" },
-	                    "Javascript"
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  "li",
-	                  null,
-	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "mobile.html" },
-	                    "Mobile"
+	                    'a',
+	                    { href: 'badges.html' },
+	                    'Components'
 	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
-	                "ul",
-	                { className: "side-nav", id: "mobile-demo" },
+	                'ul',
+	                { className: 'side-nav', id: 'mobile-demo' },
 	                _react2.default.createElement(
-	                  "li",
+	                  'li',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "sass.html" },
-	                    "Sass"
+	                    _reactRouter.Link,
+	                    { to: 'about' },
+	                    'Sass'
 	                  )
 	                ),
 	                _react2.default.createElement(
-	                  "li",
+	                  'li',
 	                  null,
 	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "badges.html" },
-	                    "Components"
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  "li",
-	                  null,
-	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "collapsible.html" },
-	                    "Javascript"
-	                  )
-	                ),
-	                _react2.default.createElement(
-	                  "li",
-	                  null,
-	                  _react2.default.createElement(
-	                    "a",
-	                    { href: "mobile.html" },
-	                    "Mobile"
+	                    'a',
+	                    { href: 'badges.html' },
+	                    'Components'
 	                  )
 	                )
 	              )
@@ -28658,6 +28474,108 @@
 	}(_react2.default.Component);
 	
 	exports.default = NavBar;
+
+/***/ },
+/* 267 */
+/*!*****************************************!*\
+  !*** ./client/app/components/Index.jsx ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Index = _react2.default.createClass({
+	  displayName: "Index",
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col s12" },
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Index"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Index;
+
+/***/ },
+/* 268 */
+/*!*****************************************!*\
+  !*** ./client/app/components/About.jsx ***!
+  \*****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var About = _react2.default.createClass({
+	  displayName: "About",
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col s12" },
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "About"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = About;
 
 /***/ }
 /******/ ]);
