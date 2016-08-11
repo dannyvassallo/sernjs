@@ -10,6 +10,9 @@
   * React
   * SASS
   * Nodemon
+  * Reload
+  * Materialize CSS/SASS
+  * Foreman
 
 ####Getting Started In Development
 
