@@ -10,6 +10,9 @@
   * React
   * SASS
   * Nodemon
+  * Reload
+  * Materialize CSS/SASS
+  * Foreman
 
 ####Getting Started In Development
 
@@ -23,11 +26,10 @@ npm install
 # sudo npm install -g foreman
 npm install -g foreman
 #every other run after:
-nf start -j Procfile.dev
+npm start
 ```
 
-
-Both the build/dev process and server have watchers -- no need to reload unless you change the materialize variables!!
+Both the build/dev process and server have watchers -- no need to reload your browser!
 
 ####Deployment
 
