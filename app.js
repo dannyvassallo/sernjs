@@ -15,5 +15,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(app.get('port'), function () {
-  console.log('Example app listening on port 3000!');
+  console.log('App is listening on port 3000! Visit localhost:3000 in your browser.');
 });
