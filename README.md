@@ -1,6 +1,6 @@
 #Disney Contest Boilerplate
 
-####Technologies Used
+###Technologies Used
 
   * NodeJS
   * NPM
@@ -14,7 +14,7 @@
   * Materialize CSS/SASS
   * Foreman
 
-####Getting Started In Development
+###Getting Started In Development
 
 In your terminal run the following:
 
@@ -33,10 +33,10 @@ Visit `localhost:5000` in your browser.
 
 ----
 Both the build/dev process and server have watchers --
-######no need to reload your browser : )
+#####no need to reload your browser : )
 ----
 
-####Deployment
+###Deployment
 
 In your terminal run the following:
 
@@ -49,7 +49,22 @@ git push heroku master
 git push heroku branchname:master
 ```
 
-####Cool Tip
+###Materialize
+
+Materialize is still dependent on jQuery -- it's been included so you can enable materialize helpers in `client/app/public/js/init-materialize.js`.
+
+If you want to alter the primary color of Materialize you can do so in `materialize-config/materialize.config.scss`
+
+```sass
+/* this takes materialize color,                */
+/* lighten, and darken classes.                 */
+/* documented here:                             */
+/* http://materializecss.com/color.html#palette */
+
+$primary-color: color("blue", "lighten-2");
+```
+
+###Cool Tip
 
 If you manipulate the folder structure on OSX, you may wind up with `.DS_Store`
 files. They're already git ignored but if you want to completely remove all of them from the project:
