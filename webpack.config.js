@@ -10,7 +10,7 @@ var STYLE_DIR = path.resolve(__dirname, './client/stylesheets');
 var config = {
   entry: [
     "materialize-loader!./materialize-config/materialize.config.js",
-    APP_DIR + '/index.jsx'
+    APP_DIR + '/main.jsx'
   ],
   output: {
     path: BUILD_DIR,
@@ -46,7 +46,7 @@ var config = {
         // comment this out for longer errors in dev
         // but comment back in for production to
         // shrink bundle size
-        NODE_ENV: JSON.stringify("production")
+        // NODE_ENV: JSON.stringify("production")
       }
     })
   ]

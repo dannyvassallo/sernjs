@@ -1,11 +1,11 @@
 // require app scss for compilation
-import '../stylesheets/application.scss';
+import '../../stylesheets/application.scss';
 import Favicon from 'react-favicon';
 // import react
 import React from 'react';
 import {render} from 'react-dom';
 // import additional components
-import NavBar from './components/NavBar.jsx';
+import NavBar from './NavBar.jsx';
 
 class App extends React.Component {
   render () {
@@ -24,4 +24,4 @@ class App extends React.Component {
   }
 }
 
-render(<App/>, document.getElementById('app'));
+module.exports = App;
