@@ -13,8 +13,8 @@ var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000
 // SET PORT FOR HEROKU DEPLOYMENT
 app.set('port', (process.env.PORT || PORT_NUM));
-app.use(logger('dev'))
-app.use(bodyParser.json()) // Parses json, multi-part (file), url-encoded
+app.use(logger('dev'));
+app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
 
 app.use(express.static(path.join(__dirname, './client/public')));
 
