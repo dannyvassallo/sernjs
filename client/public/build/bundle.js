@@ -623,7 +623,7 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Home = __webpack_require__(/*! ./components/Home.jsx */ 269);
+	var _Home = __webpack_require__(/*! ./components/Home.jsx */ 267);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
@@ -28476,7 +28476,57 @@
 	exports.default = NavBar;
 
 /***/ },
-/* 267 */,
+/* 267 */
+/*!****************************************!*\
+  !*** ./client/app/components/Home.jsx ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	var _react = __webpack_require__(/*! react */ 27);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Home = _react2.default.createClass({
+	  displayName: "Home",
+	
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "container" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "row" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "col s12" },
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Index"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Home;
+
+/***/ },
 /* 268 */
 /*!*****************************************!*\
   !*** ./client/app/components/About.jsx ***!
@@ -28526,57 +28576,6 @@
 	});
 	
 	module.exports = About;
-
-/***/ },
-/* 269 */
-/*!****************************************!*\
-  !*** ./client/app/components/Home.jsx ***!
-  \****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-	
-	var _react = __webpack_require__(/*! react */ 27);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var Home = _react2.default.createClass({
-	  displayName: "Home",
-	
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "container" },
-	      _react2.default.createElement(
-	        "div",
-	        { className: "row" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "col s12" },
-	          _react2.default.createElement(
-	            "h2",
-	            null,
-	            "Index"
-	          ),
-	          _react2.default.createElement(
-	            "p",
-	            null,
-	            "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	          ),
-	          _react2.default.createElement(
-	            "p",
-	            null,
-	            "Duis a turpis sed lacus dapibus elementum sed eu lectus."
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = Home;
 
 /***/ }
 /******/ ]);
