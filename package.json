@@ -39,6 +39,7 @@
     "url-loader": "^0.5.7",
     "node-sass": "^3.8.0",
     "materialize-loader": "git://github.com/dannyvassallo/materialize-loader.git#loader",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "foreman": "^1.4.1"
   }
 }
