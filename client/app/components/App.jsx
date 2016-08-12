@@ -62,9 +62,19 @@ class App extends React.Component {
           <NavBar />
           <main>
             {this.props.children}
-            {this.state.counter}<br/>
-            <a onClick={this._myAction.bind(this, 1)}>BUTTON 1</a><br/>
-            <a onClick={this._myAction.bind(this, 2)}>BUTTON 2</a>
+            <div className="container">
+              <div className="row">
+                <div className="col s12 center-align">
+                  <h2>Counter: {this.state.counter}</h2>
+                </div>
+                <div className="col s6 center-align">
+                  <a onClick={this._myAction.bind(this, 1)} className="btn-large">BUTTON 1</a>
+                </div>
+                <div className="col s6 center-align">
+                  <a onClick={this._myAction.bind(this, 5)} className="btn-large">BUTTON 2</a>
+                </div>
+              </div>
+            </div>
           </main>
         </div>
     );

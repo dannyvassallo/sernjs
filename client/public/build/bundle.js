@@ -27343,18 +27343,41 @@
 	          'main',
 	          null,
 	          this.props.children,
-	          this.state.counter,
-	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            'a',
-	            { onClick: this._myAction.bind(this, 1) },
-	            'BUTTON 1'
-	          ),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            'a',
-	            { onClick: this._myAction.bind(this, 2) },
-	            'BUTTON 2'
+	            'div',
+	            { className: 'container' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'row' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col s12 center-align' },
+	                _react2.default.createElement(
+	                  'h2',
+	                  null,
+	                  'Counter: ',
+	                  this.state.counter
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col s6 center-align' },
+	                _react2.default.createElement(
+	                  'a',
+	                  { onClick: this._myAction.bind(this, 1), className: 'btn-large' },
+	                  'BUTTON 1'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col s6 center-align' },
+	                _react2.default.createElement(
+	                  'a',
+	                  { onClick: this._myAction.bind(this, 5), className: 'btn-large' },
+	                  'BUTTON 2'
+	                )
+	              )
+	            )
 	          )
 	        )
 	      );
