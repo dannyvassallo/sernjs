@@ -27765,7 +27765,6 @@
 	  }, {
 	    key: '_myAction',
 	    value: function _myAction(arg) {
-	
 	      fetch('/api/counter').then(function (response) {
 	        return response.json();
 	      }).then(function (json) {
@@ -27775,13 +27774,6 @@
 	          amount: integer
 	        });
 	      });
-	
-	      // setTimeout(function(){
-	      //   Store.dispatch({
-	      //     type: "INCREMENT",
-	      //     amount: arg
-	      //   });
-	      //  }, 100);
 	    }
 	  }, {
 	    key: 'render',
@@ -27813,20 +27805,11 @@
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'col s6 center-align' },
+	                { className: 'col s12 center-align' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { onClick: this._myAction.bind(this, 1), className: 'btn-large' },
-	                  'BUTTON 1'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'col s6 center-align' },
-	                _react2.default.createElement(
-	                  'a',
-	                  { onClick: this._myAction.bind(this, 5), className: 'btn-large' },
-	                  'BUTTON 2'
+	                  'INCREMENT COUNTER'
 	                )
 	              )
 	            )
