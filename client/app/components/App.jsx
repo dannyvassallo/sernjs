@@ -41,7 +41,6 @@ class App extends React.Component {
   }
 
   _myAction (arg){
-
     fetch('/api/counter')
       .then(function(response) {
         return response.json()
@@ -52,14 +51,6 @@ class App extends React.Component {
           amount: integer
         });
       })
-
-
-  // setTimeout(function(){
-  //   Store.dispatch({
-  //     type: "INCREMENT",
-  //     amount: arg
-  //   });
-  //  }, 100);
   }
 
   render () {
@@ -77,11 +68,8 @@ class App extends React.Component {
                 <div className="col s12 center-align">
                   <h2>Counter: {this.state.counter}</h2>
                 </div>
-                <div className="col s6 center-align">
-                  <a onClick={this._myAction.bind(this, 1)} className="btn-large">BUTTON 1</a>
-                </div>
-                <div className="col s6 center-align">
-                  <a onClick={this._myAction.bind(this, 5)} className="btn-large">BUTTON 2</a>
+                <div className="col s12 center-align">
+                  <a onClick={this._myAction.bind(this, 1)} className="btn-large">INCREMENT COUNTER</a>
                 </div>
               </div>
             </div>
