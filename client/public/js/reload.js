@@ -1,4 +1,4 @@
-var head = document.getElementsByTagName('head')[0];
+var head = document.getElementsByTagName('head')[0],
 js = document.createElement("script"),
 hostname = window.location.hostname;
 

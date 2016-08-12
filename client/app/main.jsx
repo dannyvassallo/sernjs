@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Router, IndexRoute, useRouterHistory } from 'react-router';
-import { createHashHistory } from 'history'
+import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 
 const target = document.getElementById('app');
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 ReactDOM.render(
-  <Router history={appHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home}/>
       <Route path="about" component={About} />

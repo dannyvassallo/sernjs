@@ -6,8 +6,35 @@ import {render} from 'react-dom';
 // import additional components
 import NavBar from './NavBar.jsx';
 import Favicon from 'react-favicon';
+import Store from '../reducers/store.js';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = Store.getState();
+  }
+
+  componentDidMount (){
+    Store.subscribe(this._getState.bind(this));
+  }
+
+  _getState (){
+    this.setState(Store.getState());
+  }
+
+  _myAction (arg){
+    Store.dispatch({
+      type: "INCREMENT",
+      amount: arg
+   });
+  setTimeout(function(){
+    Store.dispatch({
+      type: "INCREMENT",
+      amount: arg
+    });
+   }, 100);
+  }
+
   render () {
     return (
         <div>
@@ -18,6 +45,9 @@ class App extends React.Component {
           <NavBar />
           <main>
             {this.props.children}
+            {this.state.counter}<br/>
+            <a onClick={this._myAction.bind(this, 1)}>BUTTON 1</a><br/>
+            <a onClick={this._myAction.bind(this, 2)}>BUTTON 2</a>
           </main>
         </div>
     );
