@@ -7,6 +7,7 @@ import {render} from 'react-dom';
 import NavBar from './NavBar.jsx';
 import Favicon from 'react-favicon';
 import Store from '../reducers/store.js';
+import 'whatwg-fetch';
 
 class App extends React.Component {
   constructor(props) {
@@ -40,16 +41,25 @@ class App extends React.Component {
   }
 
   _myAction (arg){
-    Store.dispatch({
-      type: "INCREMENT",
-      amount: arg
-   });
-  setTimeout(function(){
-    Store.dispatch({
-      type: "INCREMENT",
-      amount: arg
-    });
-   }, 100);
+
+    fetch('/api/counter')
+      .then(function(response) {
+        return response.json()
+      }).then(function(json) {
+        let integer = parseInt(json.increment)
+        Store.dispatch({
+          type: "INCREMENT",
+          amount: integer
+        });
+      })
+
+
+  // setTimeout(function(){
+  //   Store.dispatch({
+  //     type: "INCREMENT",
+  //     amount: arg
+  //   });
+  //  }, 100);
   }
 
   render () {

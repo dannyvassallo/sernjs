@@ -20,6 +20,12 @@ app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
 app.use(express.static(path.join(__dirname, './client/public/')));
 app.use(express.static(path.join(__dirname, './client/public/build/')));
 
+// API Routes
+app.get('/api/counter', function(req, res){
+  res.json({ increment: 1 });
+});
+
+// Serve Index on all routes clientside
 app.get('*', function (req, res) {
   res.sendFile(path.join(VIEWS_DIR ,'/index.html'));
 });
