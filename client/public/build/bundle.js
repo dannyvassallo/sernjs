@@ -27898,7 +27898,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'a',
-	                { href: '#', 'data-activates': 'mobile-demo', className: 'button-collapse' },
+	                { href: '#', 'data-activates': 'mobile-nav', className: 'button-collapse' },
 	                _react2.default.createElement(
 	                  'i',
 	                  { className: 'material-icons' },
@@ -27920,7 +27920,7 @@
 	              ),
 	              _react2.default.createElement(
 	                'ul',
-	                { className: 'side-nav', id: 'mobile-demo' },
+	                { className: 'side-nav', id: 'mobile-nav' },
 	                _react2.default.createElement(
 	                  'li',
 	                  null,
