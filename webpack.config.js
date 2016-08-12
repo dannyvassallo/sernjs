@@ -10,7 +10,8 @@ var STYLE_DIR = path.resolve(__dirname, './client/stylesheets');
 var config = {
   entry: [
     "materialize-loader!./materialize-config/materialize.config.js",
-    APP_DIR + '/index.jsx'
+    "whatwg-fetch",
+    APP_DIR + '/main.jsx'
   ],
   output: {
     path: BUILD_DIR,
