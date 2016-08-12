@@ -40,7 +40,7 @@ class App extends React.Component {
     this.setState(Store.getState());
   }
 
-  _myAction (){
+  _myAction (event){
     fetch('/api/counter')
       .then(function(response) {
         return response.json()

@@ -27764,7 +27764,7 @@
 	    }
 	  }, {
 	    key: '_myAction',
-	    value: function _myAction(arg) {
+	    value: function _myAction(event) {
 	      fetch('/api/counter').then(function (response) {
 	        return response.json();
 	      }).then(function (json) {
@@ -27808,7 +27808,7 @@
 	                { className: 'col s12 center-align' },
 	                _react2.default.createElement(
 	                  'a',
-	                  { onClick: this._myAction.bind(this, 1), className: 'btn-large' },
+	                  { onClick: this._myAction.bind(this), className: 'btn-large' },
 	                  'INCREMENT COUNTER'
 	                )
 	              )

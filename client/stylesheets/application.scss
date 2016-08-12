@@ -1,4 +1,11 @@
-body{
-  // color: black;
-  // background: red;
+.disable-highlight{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+// Disable Highlight on btns
+.btn, .btn-large{
+ @extend .disable-highlight
 }
