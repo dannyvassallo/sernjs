@@ -67,6 +67,12 @@ If you want to alter the primary color of Materialize you can do so in `material
 $primary-color: color("blue", "lighten-2");
 ```
 
+###Sass/Scss Setup
+
+The `application.scss` file is available in `client/stylesheets/application.scss`.
+Feel free to alter this file or `@import` additional `sass/scss` files from the
+`stylesheets` folder.
+
 ###Cool Tip
 
 If you manipulate the folder structure on OSX, you may wind up with `.DS_Store`
