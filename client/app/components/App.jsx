@@ -40,7 +40,7 @@ class App extends React.Component {
     this.setState(Store.getState());
   }
 
-  _myAction (arg){
+  _myAction (){
     fetch('/api/counter')
       .then(function(response) {
         return response.json()
@@ -69,7 +69,7 @@ class App extends React.Component {
                   <h2>Counter: {this.state.counter}</h2>
                 </div>
                 <div className="col s12 center-align">
-                  <a onClick={this._myAction.bind(this, 1)} className="btn-large">INCREMENT COUNTER</a>
+                  <a onClick={this._myAction.bind(this)} className="btn-large">INCREMENT COUNTER</a>
                 </div>
               </div>
             </div>
