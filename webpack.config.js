@@ -47,7 +47,7 @@ var config = {
         // comment this out for longer errors in dev
         // but comment back in for production to
         // shrink bundle size
-        NODE_ENV: JSON.stringify("production")
+        // NODE_ENV: JSON.stringify("production")
       }
     })
   ]

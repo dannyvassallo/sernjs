@@ -1066,11 +1066,11 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Home = __webpack_require__(/*! ./components/Home.jsx */ 274);
+	var _Home = __webpack_require__(/*! ./components/Home.jsx */ 275);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _About = __webpack_require__(/*! ./components/About.jsx */ 275);
+	var _About = __webpack_require__(/*! ./components/About.jsx */ 276);
 	
 	var _About2 = _interopRequireDefault(_About);
 	
@@ -27707,6 +27707,10 @@
 	
 	var _store2 = _interopRequireDefault(_store);
 	
+	var _Counter = __webpack_require__(/*! ./Counter.jsx */ 274);
+	
+	var _Counter2 = _interopRequireDefault(_Counter);
+	
 	__webpack_require__(/*! whatwg-fetch */ 26);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -27735,47 +27739,6 @@
 	  }
 	
 	  _createClass(App, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      _store2.default.subscribe(this._getState.bind(this));
-	    }
-	  }, {
-	    key: 'componentWillMount',
-	    value: function componentWillMount() {
-	      // ASSESS WHETHER LIVERELOAD RUNS OR NOT
-	      var head = document.getElementsByTagName('body')[0];
-	      var js = document.createElement("script"),
-	          hostname = window.location.hostname;
-	
-	      if (hostname == "localhost") {
-	        console.log("live reload is active.");
-	        js.src = "/reload/reload.js";
-	        js.type = "text/html";
-	      } else {
-	        console.log("live reload disabled.");
-	      }
-	
-	      head.appendChild(js);
-	    }
-	  }, {
-	    key: '_getState',
-	    value: function _getState() {
-	      this.setState(_store2.default.getState());
-	    }
-	  }, {
-	    key: '_myAction',
-	    value: function _myAction(event) {
-	      fetch('/api/counter').then(function (response) {
-	        return response.json();
-	      }).then(function (json) {
-	        var integer = parseInt(json.increment);
-	        _store2.default.dispatch({
-	          type: "INCREMENT",
-	          amount: integer
-	        });
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -27787,33 +27750,7 @@
 	          'main',
 	          null,
 	          this.props.children,
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'row' },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'col s12 center-align' },
-	                _react2.default.createElement(
-	                  'h2',
-	                  null,
-	                  'Counter: ',
-	                  this.state.counter
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'col s12 center-align' },
-	                _react2.default.createElement(
-	                  'a',
-	                  { onClick: this._myAction.bind(this), className: 'btn-large' },
-	                  'INCREMENT COUNTER'
-	                )
-	              )
-	            )
-	          )
+	          _react2.default.createElement(_Counter2.default, null)
 	        )
 	      );
 	    }
@@ -29028,6 +28965,106 @@
 
 /***/ },
 /* 274 */
+/*!*******************************************!*\
+  !*** ./client/app/components/Counter.jsx ***!
+  \*******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(/*! react */ 28);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _store = __webpack_require__(/*! ../reducers/store.js */ 259);
+	
+	var _store2 = _interopRequireDefault(_store);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Counter = function (_React$Component) {
+	  _inherits(Counter, _React$Component);
+	
+	  function Counter(props) {
+	    _classCallCheck(this, Counter);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Counter).call(this, props));
+	
+	    _this.state = _store2.default.getState();
+	    return _this;
+	  }
+	
+	  _createClass(Counter, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _store2.default.subscribe(this._getState.bind(this));
+	    }
+	  }, {
+	    key: '_getState',
+	    value: function _getState() {
+	      this.setState(_store2.default.getState());
+	    }
+	  }, {
+	    key: '_myAction',
+	    value: function _myAction(event) {
+	      fetch('/api/counter').then(function (response) {
+	        return response.json();
+	      }).then(function (json) {
+	        var integer = parseInt(json.increment);
+	        _store2.default.dispatch({
+	          type: "INCREMENT",
+	          amount: integer
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col s12 center-align' },
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Counter: ',
+	              this.state.counter
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col s12 center-align' },
+	            _react2.default.createElement(
+	              'a',
+	              { onClick: this._myAction.bind(this), className: 'btn-large' },
+	              'INCREMENT COUNTER'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Counter;
+	}(_react2.default.Component);
+	
+	module.exports = Counter;
+
+/***/ },
+/* 275 */
 /*!****************************************!*\
   !*** ./client/app/components/Home.jsx ***!
   \****************************************/
@@ -29078,7 +29115,7 @@
 	module.exports = Home;
 
 /***/ },
-/* 275 */
+/* 276 */
 /*!*****************************************!*\
   !*** ./client/app/components/About.jsx ***!
   \*****************************************/
