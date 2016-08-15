@@ -79,6 +79,8 @@ Feel free to alter this file or `@import` additional `sass/scss` files from the
 
 ###Sequelize [(docs)](https://github.com/sequelize/cli)
 
+We use PostgreSQL. On OSX you can set this up pretty quickly by using the [Postgres.app](http://postgresapp.com/).
+
 Install Sequelize CLI Globally
 
 ```shell
