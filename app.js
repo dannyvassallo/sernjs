@@ -9,7 +9,6 @@ var watch = require('watch');
 var app = express();
 
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
-var VIEWS_DIR = path.resolve(__dirname, './client/public/views');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000
 // SET PORT FOR HEROKU DEPLOYMENT
@@ -21,14 +20,9 @@ app.use(express.static(path.join(__dirname, './client/public/')));
 app.use(express.static(path.join(__dirname, './client/public/build/')));
 
 // API Routes
-app.get('/api/counter', function(req, res){
-  res.json({ increment: 1 });
-});
-
-// Serve Index on all routes clientside
-app.get('*', function (req, res) {
-  res.sendFile(path.join(VIEWS_DIR ,'/index.html'));
-});
+app.use('/api/counter', require('./routes/api/counter.js'));
+// Index Routes
+app.use('*', require('./routes/index.js'));
 
 var server = http.createServer(app);
 
