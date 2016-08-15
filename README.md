@@ -13,6 +13,7 @@ I guess you could call this a "SERN" stack boilerplate.
   * Webpack
   * Babel/ES6
   * React
+  * Redux
   * SASS
   * Nodemon
   * Reload
@@ -79,6 +80,7 @@ Feel free to alter this file or `@import` additional `sass/scss` files from the
 ###Sequelize
 
 Working on it ...
+
 `[...]`
 
 ###Cool Tip
