@@ -7,7 +7,6 @@ import {render} from 'react-dom';
 import NavBar from './NavBar.jsx';
 import Favicon from 'react-favicon';
 import Store from '../reducers/store.js';
-import Counter from './Counter.jsx';
 import 'whatwg-fetch';
 
 class App extends React.Component {
@@ -15,6 +14,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = Store.getState();
+  }
+
+  componentDidMount (){
+    Store.subscribe(this._getState.bind(this));
+  }
+
+  _getState (){
+    this.setState(Store.getState());
   }
 
   render () {
@@ -26,8 +33,7 @@ class App extends React.Component {
           ]}/>
           <NavBar />
           <main>
-            {this.props.children}
-            <Counter />
+              {this.props.children && React.cloneElement(this.props.children, this.state)}
           </main>
         </div>
     );

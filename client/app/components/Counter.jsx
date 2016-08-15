@@ -2,18 +2,6 @@ import React from 'react';
 import Store from '../reducers/store.js';
 
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = Store.getState();
-  }
-
-  componentDidMount (){
-    Store.subscribe(this._getState.bind(this));
-  }
-
-  _getState (){
-    this.setState(Store.getState());
-  }
 
   _myAction (event){
     fetch('/api/counter')
@@ -33,7 +21,7 @@ class Counter extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col s12 center-align">
-            <h2>Counter: {this.state.counter}</h2>
+            <h2>Counter: {this.props.counter}</h2>
           </div>
           <div className="col s12 center-align">
             <a onClick={this._myAction.bind(this)} className="btn-large">INCREMENT COUNTER</a>
