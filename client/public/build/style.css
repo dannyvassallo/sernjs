@@ -1,7 +1,1 @@
-.disable-highlight, .btn, .btn-large {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -ms-user-select: none; }
-
-/*# sourceMappingURL=style.css.map*/
+.btn,.btn-large,.disable-highlight{-webkit-user-select:none;-moz-user-select:none;-khtml-user-select:none;-ms-user-select:none}
