@@ -1,6 +1,6 @@
 #Node React Boilerplate
 
-React, Node, Express, Sass, Sequelize, and Materialize boilerplate with live-reloading
+React, Node, Express, Sass, PostgreSQL, Sequelize, and Materialize boilerplate with live-reloading
 capability server and clientside.
 
 I guess you could call this a "SERN" stack boilerplate.
@@ -19,6 +19,8 @@ I guess you could call this a "SERN" stack boilerplate.
   * Reload
   * Materialize CSS/SASS
   * Sequelize
+  * Sequelize-CLI
+  * PostgreSQL
   * Foreman
 
 ###Getting Started In Development
@@ -32,7 +34,13 @@ npm install
 #if it doesn't work run:
 # sudo npm install -g foreman
 npm install -g foreman
+#if it doesn't work run:
+# sudo npm install -g sequelize-cli
+npm install -g sequelize-cli
+#open the postgresql.app first
+psql -f node_react_boilerplate.sql
 #every other run after:
+#open the postgresql.app
 npm start
 ```
 
@@ -81,15 +89,16 @@ Feel free to alter this file or `@import` additional `sass/scss` files from the
 
 We use PostgreSQL. On OSX you can set this up pretty quickly by using the [Postgres.app](http://postgresapp.com/).
 
-First, provision the databases:
+FIRST, provision the databases:
 
 ```shell
 #only run this on first install
 #this will drop your DB if it exists
+#don't run this is you already have
 psql -f node_react_boilerplate.sql
 ```
 
-Install Sequelize CLI Globally
+THEN Install Sequelize CLI Globally
 
 ```shell
 npm install -g sequelize-cli
