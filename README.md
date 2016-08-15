@@ -1,4 +1,4 @@
-#Disney Contest Boilerplate
+#Node React Boilerplate
 
 React, Node, Express, Sass, and Materialize boilerplate with live-reloading
 capability server and clientside.
