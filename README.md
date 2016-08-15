@@ -1,6 +1,6 @@
-#Disney Contest Boilerplate
+#Node React Boilerplate
 
-React, Node, Express, and Materialize boilerplate with live-reloading
+React, Node, Express, Sass, and Materialize boilerplate with live-reloading
 capability server and clientside.
 
 ###Technologies Used
@@ -9,7 +9,7 @@ capability server and clientside.
   * NPM
   * Express
   * Webpack
-  * Babel
+  * Babel/ES6
   * React
   * SASS
   * Nodemon
@@ -66,6 +66,12 @@ If you want to alter the primary color of Materialize you can do so in `material
 
 $primary-color: color("blue", "lighten-2");
 ```
+
+###Sass/Scss Setup
+
+The `application.scss` file is available in `client/stylesheets/application.scss`.
+Feel free to alter this file or `@import` additional `sass/scss` files from the
+`stylesheets` folder.
 
 ###Cool Tip
 
