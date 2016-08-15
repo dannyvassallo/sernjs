@@ -29066,7 +29066,7 @@
 	
 	  _createClass(Counter, [{
 	    key: '_myAction',
-	    value: function _myAction(event) {
+	    value: function _myAction() {
 	      fetch('/api/counter').then(function (response) {
 	        return response.json();
 	      }).then(function (json) {

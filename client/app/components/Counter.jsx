@@ -3,7 +3,7 @@ import Store from '../reducers/store.js';
 
 class Counter extends React.Component {
 
-  _myAction (event){
+  _myAction (){
     fetch('/api/counter')
       .then(function(response) {
         return response.json()
