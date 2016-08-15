@@ -1,7 +1,9 @@
 #Node React Boilerplate
 
-React, Node, Express, Sass, and Materialize boilerplate with live-reloading
+React, Node, Express, Sass, Sequelize, and Materialize boilerplate with live-reloading
 capability server and clientside.
+
+I guess you could call this a "SERN" stack boilerplate.
 
 ###Technologies Used
 
@@ -15,6 +17,7 @@ capability server and clientside.
   * Nodemon
   * Reload
   * Materialize CSS/SASS
+  * Sequelize
   * Foreman
 
 ###Getting Started In Development
@@ -72,6 +75,11 @@ $primary-color: color("blue", "lighten-2");
 The `application.scss` file is available in `client/stylesheets/application.scss`.
 Feel free to alter this file or `@import` additional `sass/scss` files from the
 `stylesheets` folder.
+
+###Sequelize
+
+Working on it ...
+`[...]`
 
 ###Cool Tip
 
