@@ -81,6 +81,14 @@ Feel free to alter this file or `@import` additional `sass/scss` files from the
 
 We use PostgreSQL. On OSX you can set this up pretty quickly by using the [Postgres.app](http://postgresapp.com/).
 
+First, provision the databases:
+
+```shell
+#only run this on first install
+#this will drop your DB if it exists
+psql -f node_react_boilerplate.sql
+```
+
 Install Sequelize CLI Globally
 
 ```shell
