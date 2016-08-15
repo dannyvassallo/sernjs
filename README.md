@@ -77,7 +77,7 @@ The `application.scss` file is available in `client/stylesheets/application.scss
 Feel free to alter this file or `@import` additional `sass/scss` files from the
 `stylesheets` folder.
 
-###Sequelize
+###Sequelize [(docs)](https://github.com/sequelize/cli)
 
 Install Sequelize CLI Globally
 
