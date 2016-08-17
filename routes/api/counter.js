@@ -14,8 +14,23 @@ function findOrCreateNewCounter(){
   });
 }
 
+function updateCounterWithNewValue(){
+  models.Counter.findById(1).then(function (counter) {
+    if (counter) {
+      var newValue = counter.count + 1
+      console.log('NEW VALUE: '+ newValue);
+      counter.updateAttributes({
+        count: newValue
+      }).then(function(){
+        console.log('counter was updated to: ' + counter.count);
+      });
+    }
+  });
+}
+
 router.get('/', function(req, res){
   findOrCreateNewCounter();
+  updateCounterWithNewValue();
   res.json({ increment: 1 });
 });
 
