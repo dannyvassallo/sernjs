@@ -58,7 +58,7 @@ In your terminal run the following:
 
 ```shell
 #on first run:
-heroku create MY_APP && heroku addons:add heroku-postgresql:dev
+heroku create MY_APP && heroku addons:add heroku-postgresql
 #get your postgres url using this command:
 heroku config:get HEROKU_POSTGRESQL_BRONZE_URL
 #every other run:
