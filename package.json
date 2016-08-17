@@ -1,7 +1,7 @@
 {
-  "name": "disneycontestboilerplate",
+  "name": "sernjs",
   "version": "1.0.0",
-  "description": "A Boilerplate for Disney Contests",
+  "description": "A Boilerplate for SERN stack apps",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dannyvassallo/disneycontest.git"
+    "url": "git+https://github.com/dannyvassallo/sernjs.git"
   },
   "author": "Danny Vassallo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dannyvassallo/disneycontest/issues"
+    "url": "https://github.com/dannyvassallo/sernjs/issues"
   },
-  "homepage": "https://github.com/dannyvassallo/disneycontest#readme",
+  "homepage": "https://github.com/dannyvassallo/sernjs#readme",
   "dependencies": {
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",

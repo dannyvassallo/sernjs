@@ -1,9 +1,8 @@
-#Node React Boilerplate
+#Welcome to SERN.JS Stack
 
-React, Node, Express, Sass, PostgreSQL, Sequelize, and Materialize boilerplate with live-reloading
-capability server and clientside.
+SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS et NodeJS based applications.
 
-I guess you could call this a "SERN" stack boilerplate.
+It is designed to give you a quick and organized way to start developing SERN based web apps.
 
 ###Technologies Used
 
