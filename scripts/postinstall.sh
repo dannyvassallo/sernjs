@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 npm run build
-sequelize -m
+./node_modules/.bin/sequelize -m
