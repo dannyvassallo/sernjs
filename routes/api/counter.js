@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var models  = require('../../server/models');
+var counterValue = 0;
 
 function findOrCreateNewCounter(){
   models.Counter.findById(1).then(function(counter){
     if(counter == null){
       var counter = models.Counter.create().then(function(newCounter) {
-        console.log(newCounter);
+        console.log('Counter did not exist -- created one.');
       });
     } else {
-      console.log(counter);
+      counterValue = parseInt(counter.count);
     }
   });
 }
@@ -22,16 +23,23 @@ function updateCounterWithNewValue(){
       counter.updateAttributes({
         count: newValue
       }).then(function(){
-        console.log('counter was updated to: ' + counter.count);
+        console.log('Counter was updated to: ' + counter.count);
+        counterValue = parseInt(counter.count);
       });
     }
   });
 }
 
-router.get('/', function(req, res){
-  findOrCreateNewCounter();
+router.get('/increment', function(req, res){
   updateCounterWithNewValue();
-  res.json({ increment: 1 });
+  setTimeout(function(){
+    res.json({ updatedValue: counterValue });
+  }, 100);
+});
+
+router.get('/value', function(req, res){
+  findOrCreateNewCounter();
+  res.json({ initialValue: counterValue });
 });
 
 module.exports = router;

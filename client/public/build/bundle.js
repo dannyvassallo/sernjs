@@ -28067,9 +28067,10 @@
 	    };
 	  }
 	  switch (action.type) {
+	    case 'DEFAULT_VALUE':
+	      return _extends({}, state, { counter: action.initialValue });
 	    case 'INCREMENT':
-	      var newValue = state.counter + action.amount;
-	      return _extends({}, state, { counter: newValue });
+	      return _extends({}, state, { counter: action.amount });
 	    default:
 	      return state;
 	  }
@@ -29065,12 +29066,26 @@
 	  }
 	
 	  _createClass(Counter, [{
-	    key: '_myAction',
-	    value: function _myAction() {
-	      fetch('/api/counter').then(function (response) {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      fetch('/api/counter/value').then(function (response) {
 	        return response.json();
 	      }).then(function (json) {
-	        var integer = parseInt(json.increment);
+	        var initialValue = parseInt(json.initialValue);
+	        console.log(initialValue);
+	        _store2.default.dispatch({
+	          type: "DEFAULT_VALUE",
+	          initialValue: initialValue
+	        });
+	      });
+	    }
+	  }, {
+	    key: '_myAction',
+	    value: function _myAction() {
+	      fetch('/api/counter/increment').then(function (response) {
+	        return response.json();
+	      }).then(function (json) {
+	        var integer = parseInt(json.updatedValue);
 	        _store2.default.dispatch({
 	          type: "INCREMENT",
 	          amount: integer
