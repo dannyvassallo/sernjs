@@ -22,6 +22,7 @@ I guess you could call this a "SERN" stack boilerplate.
   * Sequelize-CLI
   * PostgreSQL
   * Foreman
+  * Pretty Error
 
 ###Getting Started In Development
 
@@ -51,13 +52,15 @@ Both the build/dev process and server have watchers --
 #####no need to reload your browser : )
 ----
 
-###Deployment
+###Heroku Deployment
 
 In your terminal run the following:
 
 ```shell
 #on first run:
-heroku create MY_APP
+heroku create MY_APP && heroku addons:add heroku-postgresql:dev
+#get your postgres url using this command:
+heroku config:get HEROKU_POSTGRESQL_BRONZE_URL
 #every other run:
 git push heroku master
 #or a non master branch:

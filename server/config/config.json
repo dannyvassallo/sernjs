@@ -15,10 +15,6 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "update me",
-    "password": "update me",
-    "database": "update me",
-    "host": "update me",
-    "dialect": "update me"
+    "use_env_variable": "DATABASE_URL"
   }
 }
