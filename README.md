@@ -38,7 +38,7 @@ npm install -g foreman
 # sudo npm install -g sequelize-cli
 npm install -g sequelize-cli
 #open the postgresql.app first
-psql -f node_react_boilerplate.sql
+psql -f sern.sql
 #every other run after:
 #open the postgresql.app
 npm start
