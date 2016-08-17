@@ -39,6 +39,8 @@ npm install -g foreman
 npm install -g sequelize-cli
 #open the postgresql.app first
 psql -f sern.sql
+# migrate the counter model
+sequelize -m # || node_modules/.bin/sequelize -m
 #every other run after:
 #open the postgresql.app
 npm start
