@@ -7,9 +7,10 @@ function counter(state, action) {
     }
   }
   switch (action.type) {
+    case 'DEFAULT_VALUE':
+      return { ...state, counter: action.initialValue }
     case 'INCREMENT':
-      let newValue = state.counter + action.amount;
-      return { ...state, counter: newValue }
+      return { ...state, counter: action.amount }
     default:
       return state
   }

@@ -1,7 +1,7 @@
 {
-  "name": "disneycontestboilerplate",
+  "name": "sernjs",
   "version": "1.0.0",
-  "description": "A Boilerplate for Disney Contests",
+  "description": "A Boilerplate for SERN stack apps",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dannyvassallo/disneycontest.git"
+    "url": "git+https://github.com/dannyvassallo/sernjs.git"
   },
   "author": "Danny Vassallo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dannyvassallo/disneycontest/issues"
+    "url": "https://github.com/dannyvassallo/sernjs/issues"
   },
-  "homepage": "https://github.com/dannyvassallo/disneycontest#readme",
+  "homepage": "https://github.com/dannyvassallo/sernjs#readme",
   "dependencies": {
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
@@ -36,6 +36,9 @@
     "morgan": "^1.7.0",
     "node-sass": "^3.8.0",
     "path": "^0.12.7",
+    "pg": "^6.1.0",
+    "pg-hstore": "^2.3.2",
+    "pretty-error": "^2.0.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-favicon": "0.0.4",
@@ -43,11 +46,13 @@
     "redux": "^3.5.2",
     "reload": "^1.0.1",
     "sass-loader": "^4.0.0",
+    "sequelize": "^3.24.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "watch": "^0.19.1",
     "webpack": "^1.13.1",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "sequelize-cli": "^2.4.0"
   },
   "devDependencies": {
     "nodemon": "^1.10.0"

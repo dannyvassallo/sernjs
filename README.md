@@ -1,7 +1,8 @@
-#Node React Boilerplate
+#Welcome to SERN.JS Stack
 
-React, Node, Express, Sass, and Materialize boilerplate with live-reloading
-capability server and clientside.
+SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS et NodeJS based applications.
+
+It is designed to give you a quick and organized way to start developing SERN based web apps.
 
 ###Technologies Used
 
@@ -11,11 +12,16 @@ capability server and clientside.
   * Webpack
   * Babel/ES6
   * React
+  * Redux
   * SASS
   * Nodemon
   * Reload
   * Materialize CSS/SASS
+  * Sequelize
+  * Sequelize-CLI
+  * PostgreSQL
   * Foreman
+  * Pretty Error
 
 ###Getting Started In Development
 
@@ -28,7 +34,13 @@ npm install
 #if it doesn't work run:
 # sudo npm install -g foreman
 npm install -g foreman
+#if it doesn't work run:
+# sudo npm install -g sequelize-cli
+npm install -g sequelize-cli
+#open the postgresql.app first
+psql -f node_react_boilerplate.sql
 #every other run after:
+#open the postgresql.app
 npm start
 ```
 
@@ -39,13 +51,15 @@ Both the build/dev process and server have watchers --
 #####no need to reload your browser : )
 ----
 
-###Deployment
+###Heroku Deployment
 
 In your terminal run the following:
 
 ```shell
 #on first run:
-heroku create MY_APP
+heroku create MY_APP && heroku addons:add heroku-postgresql
+#get your postgres url using this command:
+heroku config:get HEROKU_POSTGRESQL_BRONZE_URL
 #every other run:
 git push heroku master
 #or a non master branch:
@@ -72,6 +86,79 @@ $primary-color: color("blue", "lighten-2");
 The `application.scss` file is available in `client/stylesheets/application.scss`.
 Feel free to alter this file or `@import` additional `sass/scss` files from the
 `stylesheets` folder.
+
+###Sequelize [(docs)](https://github.com/sequelize/cli)
+
+We use PostgreSQL. On OSX you can set this up pretty quickly by using the [Postgres.app](http://postgresapp.com/).
+
+FIRST, provision the databases:
+
+```shell
+#only run this on first install
+#this will drop your DB if it exists
+#don't run this is you already have
+psql -f node_react_boilerplate.sql
+```
+
+THEN Install Sequelize CLI Globally
+
+```shell
+npm install -g sequelize-cli
+#and then use it like this:
+sequelize [--HARMONY-FLAGS]
+```
+
+OR run from dev (it's a dep already)
+
+```
+node_modules/.bin/sequelize [--HARMONY-FLAGS]
+```
+
+Usage:
+
+```shell
+Sequelize [Node: 2.5.0, CLI: 1.8.3, ORM: 2.1.3]
+
+Usage
+  sequelize [task]
+
+Available tasks
+  db:migrate             Run pending migrations.
+  db:migrate:old_schema  Update legacy migration table
+  db:migrate:undo        Revert the last migration run.
+  db:migrate:undo:all    Revert all migrations ran.
+  db:seed                Run seeders.
+  db:seed:undo           Deletes data from the database.
+  db:seed:undo:all       Deletes data from the database.
+  help                   Display this help text. Aliases: h
+  init                   Initializes the project.
+  init:config            Initializes the configuration.
+  init:migrations        Initializes the migrations.
+  init:models            Initializes the models.
+  init:seeders           Initializes the seeders.
+  migration:create       Generates a new migration file. Aliases: migration:generate
+  model:create           Generates a model and its migration. Aliases: model:generate
+  seed:create            Generates a new seed file. Aliases: seed:generate
+  version                Prints the version number. Aliases: v
+
+Available manuals
+  help:db:migrate             The documentation for "sequelize db:migrate".
+  help:db:migrate:old_schema  The documentation for "sequelize db:migrate:old_schema".
+  help:db:migrate:undo        The documentation for "sequelize db:migrate:undo".
+  help:db:migrate:undo:all    The documentation for "sequelize db:migrate:undo:all".
+  help:db:seed                The documentation for "sequelize db:seed".
+  help:db:seed:undo           The documentation for "sequelize db:seed:undo".
+  help:db:seed:undo:all       The documentation for "sequelize db:seed:undo:all".
+  help:init                   The documentation for "sequelize init".
+  help:init:config            The documentation for "sequelize init:config".
+  help:init:migrations        The documentation for "sequelize init:migrations".
+  help:init:models            The documentation for "sequelize init:models".
+  help:init:seeders           The documentation for "sequelize init:seeders".
+  help:migration:create       The documentation for "sequelize migration:create".
+  help:model:create           The documentation for "sequelize model:create".
+  help:seed:create            The documentation for "sequelize seed:create".
+  help:version                The documentation for "sequelize version".
+```
 
 ###Cool Tip
 
