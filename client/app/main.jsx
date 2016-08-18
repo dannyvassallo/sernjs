@@ -4,6 +4,8 @@ import { Route, Router, IndexRoute, browserHistory } from 'react-router';
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 const target = document.getElementById('app');
 
