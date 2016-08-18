@@ -10,6 +10,7 @@ var STYLE_DIR = path.resolve(__dirname, './client/stylesheets');
 var config = {
   entry: [
     "whatwg-fetch",
+    "./client/stylesheets/application.scss",
     APP_DIR + '/main.jsx'
   ],
   output: {
