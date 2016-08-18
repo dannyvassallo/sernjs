@@ -1,5 +1,6 @@
 import React from 'react';
 import Store from '../reducers/store.js';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Counter extends React.Component {
 
@@ -38,7 +39,7 @@ class Counter extends React.Component {
             <h2>Counter: {this.props.counter}</h2>
           </div>
           <div className="col s12 center-align">
-            <a onClick={this._myAction.bind(this)} className="btn-large">INCREMENT COUNTER</a>
+            <RaisedButton label="Increment Counter" onClick={this._myAction.bind(this)} />
           </div>
         </div>
       </div>

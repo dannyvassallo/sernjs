@@ -1,7 +1,6 @@
 // import react
 import React from 'react';
 import {render} from 'react-dom';
-// import additional components
 import NavBar from './NavBar.jsx';
 import Favicon from 'react-favicon';
 import Store from '../reducers/store.js';
