@@ -54,6 +54,13 @@ To get to the console (like `rails c`):
 npm run c
 ```
 
+In the boilerplate, you can query the value of the counter model's count value and log it
+using the following example within the console:
+
+```javascript
+db.Counter.findById(1).then(function(counter){console.log(counter.count)})
+```
+
 ###Heroku Deployment
 
 In your terminal run the following:
