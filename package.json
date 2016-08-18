@@ -8,6 +8,7 @@
     "build": "./node_modules/.bin/webpack -p --progress --colors",
     "dev": "./node_modules/.bin/webpack -d --progress --colors --watch",
     "postinstall": "bash ./scripts/postinstall.sh",
+    "c": "node console.js",
     "start": "nf start -j Procfile.dev"
   },
   "repository": {
