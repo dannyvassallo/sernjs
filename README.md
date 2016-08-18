@@ -16,7 +16,6 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * SASS
   * Nodemon
   * Reload
-  * Materialize CSS/SASS
   * Sequelize
   * Sequelize-CLI
   * PostgreSQL
@@ -74,21 +73,6 @@ heroku config:get HEROKU_POSTGRESQL_BRONZE_URL
 git push heroku master
 #or a non master branch:
 git push heroku branchname:master
-```
-
-###Materialize
-
-Materialize is still dependent on jQuery -- it's been included so you can enable materialize helpers in `client/app/public/js/init-materialize.js`.
-
-If you want to alter the primary color of Materialize you can do so in `materialize-config/materialize.config.scss`
-
-```sass
-/* this takes materialize color,                */
-/* lighten, and darken classes.                 */
-/* documented here:                             */
-/* http://materializecss.com/color.html#palette */
-
-$primary-color: color("blue", "lighten-2");
 ```
 
 ###Sass/Scss Setup
