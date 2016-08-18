@@ -1,13 +1,17 @@
 // import jquery and enable sidenav
 import React from 'react';
 import {Link} from 'react-router';
-// import main from './main.jsx';
+import AppBar from 'material-ui/AppBar';
 
 class NavBar extends React.Component {
   // const { main } = this.props;
   render() {
     return (
       <div className="navbar-fixed">
+        <AppBar
+          title="Title"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+        />
         <nav>
           <div className="container">
             <div className="nav-wrapper">

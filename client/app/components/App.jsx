@@ -29,7 +29,7 @@ class App extends React.Component {
             'https://scotch.io/wp-content/themes/scotchpress/img/favicons/favicon-228.png'
           ]}/>
           <NavBar />
-          <main>
+          <main className="container">
               {this.props.children && React.cloneElement(this.props.children, this.state)}
           </main>
         </div>
