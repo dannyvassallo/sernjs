@@ -1,6 +1,6 @@
 #Welcome to SERN.JS Stack
 
-SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS et NodeJS based applications.
+SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS and NodeJS based applications.
 
 It is designed to give you a quick and organized way to start developing SERN based web apps.
 
@@ -21,6 +21,8 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * PostgreSQL
   * Foreman
   * Pretty Error
+  * Material UI
+  * flexboxgrid
 
 ###Getting Started In Development
 
@@ -74,6 +76,14 @@ git push heroku master
 #or a non master branch:
 git push heroku branchname:master
 ```
+
+###Material UI & flexboxgrid
+
+For documentation and component examples in Material UI visit the homepage [here](http://www.material-ui.com/#/).
+
+Flexboxgrid uses the same convention as bootstrap's grid but you can also view the
+docs [here](http://flexboxgrid.com/) for it's additional uses.
+
 
 ###Sass/Scss Setup
 
