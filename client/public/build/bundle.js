@@ -35614,68 +35614,38 @@
 	  }
 	
 	  _createClass(NavBar, [{
-	    key: 'render',
+	    key: '_goToIndex',
 	
 	    // const { main } = this.props;
+	    value: function _goToIndex() {
+	      alert('will route to index');
+	    }
+	  }, {
+	    key: '_toggleAppDrawer',
+	    value: function _toggleAppDrawer() {
+	      alert('will toggle drawer');
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'navbar-fixed' },
+	        null,
 	        _react2.default.createElement(_AppBar2.default, {
-	          title: 'Title',
-	          iconClassNameRight: 'muidocs-icon-navigation-expand-more'
+	          title: 'SERN.js',
+	          iconClassNameRight: 'muidocs-icon-navigation-expand-more',
+	          onTitleTouchTap: this._goToIndex.bind(this),
+	          onLeftIconButtonTouchTap: this._toggleAppDrawer.bind(this)
 	        }),
 	        _react2.default.createElement(
-	          'nav',
-	          null,
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'container' },
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'nav-wrapper' },
-	              _react2.default.createElement(
-	                _reactRouter.Link,
-	                { to: '/', className: 'brand-logo' },
-	                'Logo'
-	              ),
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#', 'data-activates': 'mobile-nav', className: 'button-collapse' },
-	                _react2.default.createElement(
-	                  'i',
-	                  { className: 'material-icons' },
-	                  'menu'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'ul',
-	                { className: 'right hide-on-med-and-down' },
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: 'about' },
-	                    'Sass'
-	                  )
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'ul',
-	                { className: 'side-nav', id: 'mobile-nav' },
-	                _react2.default.createElement(
-	                  'li',
-	                  null,
-	                  _react2.default.createElement(
-	                    _reactRouter.Link,
-	                    { to: 'about' },
-	                    'Sass'
-	                  )
-	                )
-	              )
-	            )
-	          )
+	          _reactRouter.Link,
+	          { to: '/' },
+	          'Home'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'about' },
+	          'about'
 	        )
 	      );
 	    }

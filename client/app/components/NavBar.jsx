@@ -1,31 +1,29 @@
 // import jquery and enable sidenav
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 
 class NavBar extends React.Component {
   // const { main } = this.props;
+  _goToIndex(){
+    alert('will route to index');
+  }
+
+  _toggleAppDrawer(){
+    alert('will toggle drawer');
+  }
+
   render() {
     return (
-      <div className="navbar-fixed">
+      <div>
         <AppBar
-          title="Title"
+          title="SERN.js"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onTitleTouchTap={this._goToIndex.bind(this)}
+          onLeftIconButtonTouchTap={this._toggleAppDrawer.bind(this)}
         />
-        <nav>
-          <div className="container">
-            <div className="nav-wrapper">
-              <Link to="/" className="brand-logo">Logo</Link>
-              <a href="#" data-activates="mobile-nav" className="button-collapse"><i className="material-icons">menu</i></a>
-              <ul className="right hide-on-med-and-down">
-                <li><Link to="about">Sass</Link></li>
-              </ul>
-              <ul className="side-nav" id="mobile-nav">
-                <li><Link to="about">Sass</Link></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        <Link to="/">Home</Link>
+        <Link to="about">about</Link>
       </div>
     );
   }
