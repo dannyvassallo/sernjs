@@ -150,24 +150,6 @@ Available tasks
   model:create           Generates a model and its migration. Aliases: model:generate
   seed:create            Generates a new seed file. Aliases: seed:generate
   version                Prints the version number. Aliases: v
-
-Available manuals
-  help:db:migrate             The documentation for "sequelize db:migrate".
-  help:db:migrate:old_schema  The documentation for "sequelize db:migrate:old_schema".
-  help:db:migrate:undo        The documentation for "sequelize db:migrate:undo".
-  help:db:migrate:undo:all    The documentation for "sequelize db:migrate:undo:all".
-  help:db:seed                The documentation for "sequelize db:seed".
-  help:db:seed:undo           The documentation for "sequelize db:seed:undo".
-  help:db:seed:undo:all       The documentation for "sequelize db:seed:undo:all".
-  help:init                   The documentation for "sequelize init".
-  help:init:config            The documentation for "sequelize init:config".
-  help:init:migrations        The documentation for "sequelize init:migrations".
-  help:init:models            The documentation for "sequelize init:models".
-  help:init:seeders           The documentation for "sequelize init:seeders".
-  help:migration:create       The documentation for "sequelize migration:create".
-  help:model:create           The documentation for "sequelize model:create".
-  help:seed:create            The documentation for "sequelize seed:create".
-  help:version                The documentation for "sequelize version".
 ```
 
 ###Cool Tip
