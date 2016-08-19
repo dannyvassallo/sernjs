@@ -10,4 +10,8 @@ html {
 .text-center {
   text-align: center; }
 
+a.menu-link {
+  text-decoration: none;
+  color: inherit; }
+
 /*# sourceMappingURL=style.css.map*/

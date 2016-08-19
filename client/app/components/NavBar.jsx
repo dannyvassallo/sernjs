@@ -2,32 +2,36 @@
 import React from 'react';
 import {Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
+import Store from '../reducers/store.js';
+import DrawerLeft from './DrawerLeft.jsx';
 
-class NavBar extends React.Component {
-  // const { main } = this.props;
-  _goToIndex(){
-    alert('will route to index');
-  }
+var NavBar = React.createClass({
 
-  _toggleAppDrawer(){
-    alert('will toggle drawer');
-  }
+  _goToIndex: function(){
+    browserHistory.push('/');
+  },
 
-  render() {
+  _toggleAppDrawer: function(){
+    Store.dispatch({
+      type: "OPEN_DRAWER",
+      open: true
+    });
+  },
+
+  render: function() {
     return (
       <div>
         <AppBar
           title="SERN.js"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
-          onTitleTouchTap={this._goToIndex.bind(this)}
-          onLeftIconButtonTouchTap={this._toggleAppDrawer.bind(this)}
+          onTitleTouchTap={this._goToIndex}
+          onLeftIconButtonTouchTap={this._toggleAppDrawer}
         />
-        <Link to="/">Home</Link>
-        <Link to="about">about</Link>
+        <DrawerLeft drawerOpen={this.props.state.props.drawerOpen}/>
       </div>
     );
   }
 
-}
+});
 
 export default NavBar;
