@@ -40469,23 +40469,14 @@
 	  }
 	
 	  _createClass(DrawerLeft, [{
-	    key: '_onRequestClose',
-	    value: function _onRequestClose() {
-	      if (this.props.drawerOpen) {
+	    key: '_handleClose',
+	    value: function _handleClose() {
+	      setTimeout(function () {
 	        _store2.default.dispatch({
 	          type: "CLOSE_DRAWER",
 	          open: false
 	        });
-	        console.log('closed');
-	      }
-	    }
-	  }, {
-	    key: '_handleClose',
-	    value: function _handleClose() {
-	      _store2.default.dispatch({
-	        type: "CLOSE_DRAWER",
-	        open: false
-	      });
+	      }, 100);
 	      console.log('closed');
 	    }
 	  }, {
@@ -40503,8 +40494,9 @@
 	            width: 200,
 	            open: this.props.drawerOpen,
 	            onRequestChange: function onRequestChange(open) {
-	              return _this2._onRequestClose();
-	            }
+	              return _this2._handleClose();
+	            },
+	            disableSwipeToOpen: true
 	          },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
