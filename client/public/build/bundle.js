@@ -45369,7 +45369,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center' },
-	          _react2.default.createElement(_RaisedButton2.default, { label: 'Increment Counter', onClick: this._myAction.bind(this) })
+	          _react2.default.createElement(_RaisedButton2.default, { primary: true, label: 'Increment Counter', onClick: this._myAction.bind(this) })
 	        )
 	      );
 	    }

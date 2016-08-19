@@ -38,7 +38,7 @@ class Counter extends React.Component {
           <h2>Counter: {this.props.counter}</h2>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-          <RaisedButton label="Increment Counter" onClick={this._myAction.bind(this)} />
+          <RaisedButton primary={true} label="Increment Counter" onClick={this._myAction.bind(this)} />
         </div>
       </div>
     )
