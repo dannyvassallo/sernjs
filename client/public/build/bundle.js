@@ -35514,8 +35514,12 @@
 	        _react2.default.createElement(_NavBar2.default, { state: this.props.children && _react2.default.cloneElement(this.props.children, this.state) }),
 	        _react2.default.createElement(
 	          'main',
-	          { className: 'container' },
-	          this.props.children && _react2.default.cloneElement(this.props.children, this.state)
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'container' },
+	            this.props.children && _react2.default.cloneElement(this.props.children, this.state)
+	          )
 	        )
 	      );
 	    }
