@@ -1,4 +1,4 @@
-.disable-highlight {
+.disable-highlight, body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;

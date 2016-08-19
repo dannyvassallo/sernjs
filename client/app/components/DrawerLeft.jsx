@@ -6,6 +6,16 @@ import Store from '../reducers/store.js';
 
 class DrawerLeft extends React.Component {
 
+  _onRequestClose(){
+    if(this.props.drawerOpen){
+      Store.dispatch({
+        type: "CLOSE_DRAWER",
+        open: false
+      });
+      console.log('closed');
+    }
+  }
+
   _handleClose(){
     Store.dispatch({
       type: "CLOSE_DRAWER",
@@ -22,7 +32,7 @@ class DrawerLeft extends React.Component {
           docked={false}
           width={200}
           open={this.props.drawerOpen}
-          onRequestChange={(open) => this._handleClose() }
+          onRequestChange={(open) => this._onRequestClose() }
         >
           <Link to="/" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Home</MenuItem></Link>
           <Link to="about" className="menu-link"><MenuItem onTouchTap={this._handleClose}>About</MenuItem></Link>

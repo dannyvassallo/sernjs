@@ -6,7 +6,7 @@
 }
 
 html { font-family: 'Roboto', sans-serif; }
-body { margin: 0; }
+body { @extend .disable-highlight; margin: 0; }
 main { margin: 8px; }
 
 .text-center{
