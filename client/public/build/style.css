@@ -1,7 +1,23 @@
-.disable-highlight, .btn, .btn-large {
+.disable-highlight, body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -khtml-user-select: none;
   -ms-user-select: none; }
+
+html {
+  font-family: 'Roboto', sans-serif; }
+
+body {
+  margin: 0; }
+
+main {
+  margin: 8px; }
+
+.text-center {
+  text-align: center; }
+
+a.menu-link {
+  text-decoration: none;
+  color: inherit; }
 
 /*# sourceMappingURL=style.css.map*/

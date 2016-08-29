@@ -32,8 +32,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "foreman": "^1.4.1",
-    "materialize-css": "^0.97.7",
-    "materialize-loader": "^1.1.1",
+    "material-ui": "^0.15.4",
     "morgan": "^1.7.0",
     "node-sass": "^3.8.0",
     "path": "^0.12.7",
@@ -44,16 +43,17 @@
     "react-dom": "^15.3.0",
     "react-favicon": "0.0.4",
     "react-router": "^2.6.1",
+    "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",
     "reload": "^1.0.1",
     "sass-loader": "^4.0.0",
     "sequelize": "^3.24.0",
+    "sequelize-cli": "^2.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "watch": "^0.19.1",
     "webpack": "^1.13.1",
-    "whatwg-fetch": "^1.0.0",
-    "sequelize-cli": "^2.4.0"
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.10.0"

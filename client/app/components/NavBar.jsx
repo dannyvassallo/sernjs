@@ -1,31 +1,37 @@
 // import jquery and enable sidenav
 import React from 'react';
-import {Link} from 'react-router';
-// import main from './main.jsx';
+import {Link, browserHistory } from 'react-router';
+import AppBar from 'material-ui/AppBar';
+import Store from '../reducers/store.js';
+import DrawerLeft from './DrawerLeft.jsx';
 
-class NavBar extends React.Component {
-  // const { main } = this.props;
-  render() {
+var NavBar = React.createClass({
+
+  _goToIndex: function(){
+    browserHistory.push('/');
+  },
+
+  _toggleAppDrawer: function(){
+    Store.dispatch({
+      type: "OPEN_DRAWER",
+      open: true
+    });
+  },
+
+  render: function() {
     return (
-      <div className="navbar-fixed">
-        <nav>
-          <div className="container">
-            <div className="nav-wrapper">
-              <Link to="/" className="brand-logo">Logo</Link>
-              <a href="#" data-activates="mobile-nav" className="button-collapse"><i className="material-icons">menu</i></a>
-              <ul className="right hide-on-med-and-down">
-                <li><Link to="about">Sass</Link></li>
-              </ul>
-              <ul className="side-nav" id="mobile-nav">
-                <li><Link to="about">Sass</Link></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+      <div>
+        <AppBar
+          title="SERN.js"
+          iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onTitleTouchTap={this._goToIndex}
+          onLeftIconButtonTouchTap={this._toggleAppDrawer}
+        />
+        <DrawerLeft drawerOpen={this.props.state.props.drawerOpen}/>
       </div>
     );
   }
 
-}
+});
 
 export default NavBar;

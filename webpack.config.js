@@ -9,8 +9,8 @@ var STYLE_DIR = path.resolve(__dirname, './client/stylesheets');
 
 var config = {
   entry: [
-    "materialize-loader!./materialize-config/materialize.config.js",
     "whatwg-fetch",
+    "./client/stylesheets/application.scss",
     APP_DIR + '/main.jsx'
   ],
   output: {
@@ -47,7 +47,7 @@ var config = {
         // comment this out for longer errors in dev
         // but comment back in for production to
         // shrink bundle size
-        NODE_ENV: JSON.stringify("production")
+        // NODE_ENV: JSON.stringify("production")
       }
     })
   ]

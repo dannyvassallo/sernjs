@@ -1,6 +1,6 @@
 #Welcome to SERN.JS Stack
 
-SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS et NodeJS based applications.
+SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS and NodeJS based applications.
 
 It is designed to give you a quick and organized way to start developing SERN based web apps.
 
@@ -16,12 +16,13 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * SASS
   * Nodemon
   * Reload
-  * Materialize CSS/SASS
   * Sequelize
   * Sequelize-CLI
   * PostgreSQL
   * Foreman
   * Pretty Error
+  * Material UI
+  * flexboxgrid
 
 ###Getting Started In Development
 
@@ -76,20 +77,13 @@ git push heroku master
 git push heroku branchname:master
 ```
 
-###Materialize
+###Material UI & flexboxgrid
 
-Materialize is still dependent on jQuery -- it's been included so you can enable materialize helpers in `client/app/public/js/init-materialize.js`.
+For documentation and component examples in Material UI visit the homepage [here](http://www.material-ui.com/#/).
 
-If you want to alter the primary color of Materialize you can do so in `materialize-config/materialize.config.scss`
+Flexboxgrid uses the same convention as bootstrap's grid but you can also view the
+docs [here](http://flexboxgrid.com/) for it's additional uses.
 
-```sass
-/* this takes materialize color,                */
-/* lighten, and darken classes.                 */
-/* documented here:                             */
-/* http://materializecss.com/color.html#palette */
-
-$primary-color: color("blue", "lighten-2");
-```
 
 ###Sass/Scss Setup
 

@@ -5,7 +5,15 @@
   -ms-user-select: none;
 }
 
-// Disable Highlight on btns
-.btn, .btn-large{
- @extend .disable-highlight
+html { font-family: 'Roboto', sans-serif; }
+body { @extend .disable-highlight; margin: 0; }
+main { margin: 8px; }
+
+.text-center{
+  text-align: center;
+}
+
+a.menu-link{
+  text-decoration: none;
+  color: inherit;
 }
