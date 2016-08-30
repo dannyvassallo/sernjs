@@ -118,6 +118,13 @@ OR run from dev (it's a dep already)
 node_modules/.bin/sequelize [--HARMONY-FLAGS]
 ```
 
+Example User model Creation / Migration:
+
+```
+sequelize model:create --name User --attributes username:string,email_address:string,password:string
+sequelize db:migrate
+```
+
 Usage:
 
 ```shell
