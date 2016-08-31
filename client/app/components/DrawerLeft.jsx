@@ -29,6 +29,8 @@ class DrawerLeft extends React.Component {
         >
           <Link to="/" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Home</MenuItem></Link>
           <Link to="about" className="menu-link"><MenuItem onTouchTap={this._handleClose}>About</MenuItem></Link>
+          <Link to="login" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Login</MenuItem></Link>
+          <Link to="signup" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Sign Up</MenuItem></Link>
         </Drawer>
       </div>
     );

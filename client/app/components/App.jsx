@@ -30,7 +30,7 @@ class App extends React.Component {
           ]}/>
           <NavBar state={this.props.children && React.cloneElement(this.props.children, this.state)} />
           <main>
-            <div className="container">
+            <div className="wrap container-flud">
               {this.props.children && React.cloneElement(this.props.children, this.state)}
             </div>
           </main>

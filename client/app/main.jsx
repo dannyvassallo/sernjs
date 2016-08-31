@@ -7,6 +7,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
+import Login from './components/Login.jsx'
+import SignUp from './components/SignUp.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 const target = document.getElementById('app');
 
@@ -17,6 +19,8 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="about" component={About} />
+        <Route path="login" component={Login} />
+        <Route path="signup" component={SignUp} />
       </Route>
     </Router>
   </MuiThemeProvider>,
