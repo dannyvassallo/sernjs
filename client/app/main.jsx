@@ -37,7 +37,7 @@ var routes = ReactDOM.render(
         <IndexRoute component={Home}/>
         <Route path="about" component={About} />
         <Route path="login" component={Login} onChange={checkCurrentUser} onEnter={checkCurrentUser}/>
-        <Route path="signup" component={SignUp} />
+        <Route path="signup" component={SignUp} onChange={checkCurrentUser} onEnter={checkCurrentUser}/>
       </Route>
     </Router>
   </MuiThemeProvider>,

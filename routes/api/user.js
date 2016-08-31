@@ -13,6 +13,7 @@ router.post('/login', function(req, res){
 
 router.get('/current', function(req, res){
   res.status(200).json({"id": "1"});
+  // res.status(500).json({"errors": "No way jose."});
 });
 
 module.exports = router;

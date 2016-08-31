@@ -48,7 +48,8 @@ class App extends React.Component {
       .catch(function(err){
         console.log("error");
       });
-    Promise.all([initialCounterValue, initialUser]).then(function(){
+    Promise.all([initialCounterValue, initialUser].map(function(promise){return promise.reflect();})).then(function(){
+      console.log("AND THEN");
       Store.dispatch({
         type: "LOADING",
         isLoading: false

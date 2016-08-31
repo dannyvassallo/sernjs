@@ -595,7 +595,7 @@
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'login', component: _Login2.default, onChange: checkCurrentUser, onEnter: checkCurrentUser }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _SignUp2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _SignUp2.default, onChange: checkCurrentUser, onEnter: checkCurrentUser })
 	    )
 	  )
 	), target);
@@ -35581,7 +35581,10 @@
 	      }).catch(function (err) {
 	        console.log("error");
 	      });
-	      Promise.all([initialCounterValue, initialUser]).then(function () {
+	      Promise.all([initialCounterValue, initialUser].map(function (promise) {
+	        return promise.reflect();
+	      })).then(function () {
+	        console.log("AND THEN");
 	        _store2.default.dispatch({
 	          type: "LOADING",
 	          isLoading: false
