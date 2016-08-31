@@ -1,4 +1,5 @@
 // import react
+import $ from "jQuery";
 import React from 'react';
 import {render} from 'react-dom';
 import NavBar from './NavBar.jsx';
@@ -14,6 +15,19 @@ class App extends React.Component {
   }
 
   componentDidMount (){
+    $.ajax({url: "/api/user/current", method: "GET"}, function(data){
+      console.log(data);
+    })
+    .done(function(data){
+      console.log(data);
+      Store.dispatch({
+        type: "INITIAL_USER",
+        user: data
+      });
+    })
+    .fail(function(data){
+      console.log(data);
+    });
     Store.subscribe(this._getState.bind(this));
   }
 
@@ -28,7 +42,7 @@ class App extends React.Component {
             'https://github.com/apple-touch-icon-180x180.png'
             // ,'https://scotch.io/wp-content/themes/scotchpress/img/favicons/favicon-228.png'
           ]}/>
-          <NavBar state={this.props.children && React.cloneElement(this.props.children, this.state)} />
+          <NavBar {...this.state} />
           <main>
             <div className="wrap container-flud">
               {this.props.children && React.cloneElement(this.props.children, this.state)}

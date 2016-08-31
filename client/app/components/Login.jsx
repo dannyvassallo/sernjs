@@ -1,28 +1,39 @@
 import React from 'react';
+import $ from 'jQuery';
 import {Link} from 'react-router';
+import Store from '../reducers/store.js';
 import {Card, CardTitle, CardText, RaisedButton, TextField} from 'material-ui';
 
 var Login = React.createClass({
 
   _submit: function(e) {
     e.preventDefault();
-    alert('It works!');
+    $.post( "api/user/login", $("#login-form").serialize())
+      .done(function(data){
+        console.log(data);
+        Store.dispatch({
+          type: "USER_SESSION",
+          user: data
+        });
+      })
+      .fail(function(data){
+        console.log(data);
+      });
   },
-
 
   render: function() {
       return (
         <div className="row">
           <Card className="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-            <form className="text-center" action="/" onSubmit={this._submit}>
+            <form id="login-form" className="text-center" onSubmit={this._submit}>
               <CardTitle title="Login with Email" />
 
               <div className="field-line">
-                <TextField ref="email" floatingLabelText="Email" />
+                <TextField ref="email" floatingLabelText="Email" name="email" />
               </div>
 
               <div className="field-line">
-                <TextField ref="password" floatingLabelText="Password" type="password" />
+                <TextField ref="password" floatingLabelText="Password" type="password" name="password" />
               </div>
 
               <div className="button-line">

@@ -27,7 +27,7 @@ var NavBar = React.createClass({
           onTitleTouchTap={this._goToIndex}
           onLeftIconButtonTouchTap={this._toggleAppDrawer}
         />
-        <DrawerLeft drawerOpen={this.props.state.props.drawerOpen}/>
+        <DrawerLeft {...this.props}/>
       </div>
     );
   }

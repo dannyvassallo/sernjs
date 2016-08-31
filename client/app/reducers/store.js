@@ -1,10 +1,12 @@
 import { createStore } from 'redux';
+import { browserHistory } from 'react-router';
 
 function appStore(state, action) {
   if (typeof state === 'undefined') {
     return {
       counter: 0,
-      drawerOpen: false
+      drawerOpen: false,
+      user: null
     }
   }
   switch (action.type) {
@@ -16,6 +18,11 @@ function appStore(state, action) {
       return { ...state, drawerOpen: action.open }
     case 'CLOSE_DRAWER':
       return { ...state, drawerOpen: action.open }
+    case 'INITIAL_USER':
+      return { ...state, user: action.user }
+    case 'USER_SESSION':
+      browserHistory.push('/');
+      return { ...state, user: action.user }
     default:
       return state
   }

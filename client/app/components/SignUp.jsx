@@ -17,10 +17,6 @@ var SignUp = React.createClass({
               <CardTitle title="Sign Up with Email" />
 
               <div className="field-line">
-                <TextField ref="name" floatingLabelText="Name" />
-              </div>
-
-              <div className="field-line">
                 <TextField ref="email" floatingLabelText="Email" />
               </div>
 

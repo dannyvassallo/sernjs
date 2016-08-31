@@ -20,12 +20,16 @@ pe.start();
 app.set('port', (process.env.PORT || PORT_NUM));
 app.use(logger('dev'));
 app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 app.use(express.static(path.join(__dirname, './client/public/')));
 app.use(express.static(path.join(__dirname, './client/public/build/')));
 
 // API Routes
 app.use('/api/counter', require('./routes/api/counter.js'));
+app.use('/api/user', require('./routes/api/user.js'));
 // Index Routes
 app.use('*', require('./routes/index.js'));
 
