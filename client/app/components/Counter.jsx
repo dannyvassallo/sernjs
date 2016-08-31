@@ -4,20 +4,6 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 class Counter extends React.Component {
 
-  componentDidMount(){
-    fetch('/api/counter/value')
-      .then(function(response) {
-        return response.json()
-      }).then(function(json) {
-        let initialValue = parseInt(json.initialValue)
-        console.log(initialValue)
-        Store.dispatch({
-          type: "DEFAULT_VALUE",
-          initialValue: initialValue
-        });
-      })
-  }
-
   _myAction (){
     fetch('/api/counter/increment')
       .then(function(response) {

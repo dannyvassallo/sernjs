@@ -16,16 +16,27 @@ const target = document.getElementById('app');
 injectTapEventPlugin();
 
 function checkCurrentUser(){
-  console.log(Store.getState());
+  var state = Store.getState();
+  if(state.user){
+    browserHistory.replace('/');
+  } else {
+    console.log("User is not present");
+  }
 }
 
-ReactDOM.render(
+Store.subscribe(refresh);
+function refresh() {
+  console.log("REFRESH");
+  browserHistory.replace(location);
+}
+
+var routes = ReactDOM.render(
   <MuiThemeProvider>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="about" component={About} />
-        <Route path="login" component={Login} onEnter={checkCurrentUser}/>
+        <Route path="login" component={Login} onChange={checkCurrentUser} onEnter={checkCurrentUser}/>
         <Route path="signup" component={SignUp} />
       </Route>
     </Router>

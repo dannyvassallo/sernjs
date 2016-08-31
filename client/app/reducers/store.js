@@ -6,7 +6,8 @@ function appStore(state, action) {
     return {
       counter: 0,
       drawerOpen: false,
-      user: null
+      user: null,
+      isLoading: true
     }
   }
   switch (action.type) {
@@ -23,6 +24,8 @@ function appStore(state, action) {
     case 'USER_SESSION':
       browserHistory.push('/');
       return { ...state, user: action.user }
+    case 'LOADING':
+      return { ...state, isLoading: action.isLoading }
     default:
       return state
   }
