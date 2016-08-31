@@ -45973,6 +45973,11 @@
 	  displayName: 'Login',
 	
 	
+	  _submit: function _submit(e) {
+	    e.preventDefault();
+	    alert('It works!');
+	  },
+	
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -45982,7 +45987,7 @@
 	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
 	        _react2.default.createElement(
 	          'form',
-	          { className: 'text-center', action: '/' },
+	          { className: 'text-center', action: '/', onSubmit: this._submit },
 	          _react2.default.createElement(_materialUi.CardTitle, { title: 'Login with Email' }),
 	          _react2.default.createElement(
 	            'div',
@@ -67309,6 +67314,11 @@
 	  displayName: 'SignUp',
 	
 	
+	  _submit: function _submit(e) {
+	    e.preventDefault();
+	    alert('it works!');
+	  },
+	
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
@@ -67318,7 +67328,7 @@
 	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
 	        _react2.default.createElement(
 	          'form',
-	          { className: 'text-center', action: '/' },
+	          { className: 'text-center', action: '/', onSubmit: this._submit },
 	          _react2.default.createElement(_materialUi.CardTitle, { title: 'Sign Up with Email' }),
 	          _react2.default.createElement(
 	            'div',

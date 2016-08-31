@@ -4,11 +4,17 @@ import {Card, CardTitle, CardText, RaisedButton, TextField} from 'material-ui';
 
 var Login = React.createClass({
 
+  _submit: function(e) {
+    e.preventDefault();
+    alert('It works!');
+  },
+
+
   render: function() {
       return (
         <div className="row">
           <Card className="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-            <form className="text-center" action="/">
+            <form className="text-center" action="/" onSubmit={this._submit}>
               <CardTitle title="Login with Email" />
 
               <div className="field-line">
