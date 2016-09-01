@@ -1,5 +1,5 @@
 import React from 'react';
-import $ from 'jQuery';
+import $ from 'jquery';
 import {Link} from 'react-router';
 import Store from '../reducers/store.js';
 import {Card, CardTitle, CardText, RaisedButton, TextField} from 'material-ui';

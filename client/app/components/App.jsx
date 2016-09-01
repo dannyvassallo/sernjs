@@ -1,9 +1,8 @@
 // import react
-import $ from "jQuery";
+import $ from "jquery";
 import React from 'react';
 import {render} from 'react-dom';
 import NavBar from './NavBar.jsx';
-import Favicon from 'react-favicon';
 import Store from '../reducers/store.js';
 import AjaxPromise from 'ajax-promise';
 import 'whatwg-fetch';
@@ -66,10 +65,6 @@ class App extends React.Component {
     console.log(this.state.isLoading);
     return (
         <div>
-          <Favicon url={[
-            'https://github.com/apple-touch-icon-180x180.png'
-            // ,'https://scotch.io/wp-content/themes/scotchpress/img/favicons/favicon-228.png'
-          ]}/>
           <NavBar {...this.state} />
           <main>
             <div className="wrap container-flud">
