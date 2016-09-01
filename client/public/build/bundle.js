@@ -92051,7 +92051,7 @@
 	
 	  _submit: function _submit(e) {
 	    e.preventDefault();
-	    _jQuery2.default.post("api/user/login", (0, _jQuery2.default)("#login-form").serialize()).done(function (data) {
+	    _jQuery2.default.post("api/user/signup", (0, _jQuery2.default)("#signup-form").serialize()).done(function (data) {
 	      console.log(data);
 	      _store2.default.dispatch({
 	        type: "USER_SESSION",
@@ -92071,17 +92071,17 @@
 	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
 	        _react2.default.createElement(
 	          'form',
-	          { className: 'text-center', action: '/', onSubmit: this._submit },
+	          { id: 'signup-form', className: 'text-center', action: '/', onSubmit: this._submit },
 	          _react2.default.createElement(_materialUi.CardTitle, { title: 'Sign Up with Email' }),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'field-line' },
-	            _react2.default.createElement(_materialUi.TextField, { ref: 'email', floatingLabelText: 'Email' })
+	            _react2.default.createElement(_materialUi.TextField, { ref: 'email', floatingLabelText: 'Email', name: 'email' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'field-line' },
-	            _react2.default.createElement(_materialUi.TextField, { ref: 'password', floatingLabelText: 'Password', type: 'password' })
+	            _react2.default.createElement(_materialUi.TextField, { ref: 'password', floatingLabelText: 'Password', type: 'password', name: 'password' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
