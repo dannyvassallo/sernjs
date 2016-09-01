@@ -8,15 +8,22 @@ router.post('/login', function(req, res){
   password = req.body.password;
   console.log("Email is: " + email);
   console.log("Password is: " + password);
-  res.status(200).json({"id": "1"});
+  models.User.find({where: { email_address: email, password: password}})
+  .then(function(loggedInUser) {
+    console.log(loggedInUser);
+    res.status(200).json(loggedInUser);
+  });
 });
 
 router.post('/signup', function(req, res){
   var email = req.body.email,
   password = req.body.password;
-  console.log("Email is: " + email);
-  console.log("Password is: " + password);
-  res.status(200).json({"id": "1"});
+  models.User.create({
+    email_address: email,
+    password: password
+  }).then(function(newUser) {
+    res.status(200).json(newUser);
+  });
 });
 
 router.get('/current', function(req, res){
