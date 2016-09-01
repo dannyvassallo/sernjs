@@ -1,12 +1,24 @@
 import React from 'react';
+import $ from 'jQuery';
 import {Link} from 'react-router';
+import Store from '../reducers/store.js';
 import {Card, CardTitle, CardText, RaisedButton, TextField} from 'material-ui';
 
 var SignUp = React.createClass({
 
-  _submit: function(e){
+  _submit: function(e) {
     e.preventDefault();
-    alert('it works!');
+    $.post( "api/user/login", $("#login-form").serialize())
+      .done(function(data){
+        console.log(data);
+        Store.dispatch({
+          type: "USER_SESSION",
+          user: data
+        });
+      })
+      .fail(function(data){
+        console.log(data);
+      });
   },
 
   render: function() {

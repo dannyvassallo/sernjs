@@ -92031,7 +92031,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _jQuery = __webpack_require__(/*! jQuery */ 397);
+	
+	var _jQuery2 = _interopRequireDefault(_jQuery);
+	
 	var _reactRouter = __webpack_require__(/*! react-router */ 175);
+	
+	var _store = __webpack_require__(/*! ../reducers/store.js */ 441);
+	
+	var _store2 = _interopRequireDefault(_store);
 	
 	var _materialUi = __webpack_require__(/*! material-ui */ 522);
 	
@@ -92043,7 +92051,15 @@
 	
 	  _submit: function _submit(e) {
 	    e.preventDefault();
-	    alert('it works!');
+	    _jQuery2.default.post("api/user/login", (0, _jQuery2.default)("#login-form").serialize()).done(function (data) {
+	      console.log(data);
+	      _store2.default.dispatch({
+	        type: "USER_SESSION",
+	        user: data
+	      });
+	    }).fail(function (data) {
+	      console.log(data);
+	    });
 	  },
 	
 	  render: function render() {
