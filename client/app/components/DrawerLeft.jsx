@@ -19,18 +19,12 @@ class DrawerLeft extends React.Component {
     e.preventDefault();
     $.get( "api/user/logout")
       .done(function(data){
-        console.log('logged out');
-        Store.dispatch({
-          type: "USER_SESSION",
-          user: null
-        });
-        browserHistory.push('/');
+        Store.dispatch({type: "CLOSE_DRAWER",open: false});
         setTimeout(function(){
-          Store.dispatch({
-            type: "CLOSE_DRAWER",
-            open: false
-          });
+          Store.dispatch({type: "USER_SESSION",user: null})
         }, 100);
+        browserHistory.push('/');
+        console.log('logged out');
       })
       .fail(function(data){
         console.log(data);
