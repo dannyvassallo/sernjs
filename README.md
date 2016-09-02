@@ -26,6 +26,9 @@ It is designed to give you a quick and organized way to start developing SERN ba
 
 ###Getting Started In Development
 
+First, duplicate the included `.env.example` file and rename it to `.env`
+Generate or rename the secret key and then proceed with the terminal commands.
+
 In your terminal run the following:
 
 ```shell
@@ -69,12 +72,13 @@ In your terminal run the following:
 ```shell
 #on first run:
 heroku create MY_APP && heroku addons:add heroku-postgresql
-#get your postgres url using this command:
-heroku config:get HEROKU_POSTGRESQL_BRONZE_URL
+heroku plugins:install heroku-config
 #every other run:
 git push heroku master
 #or a non master branch:
 git push heroku branchname:master
+#if you make changes to your env file
+heroku config:push
 ```
 
 ###Material UI & flexboxgrid
