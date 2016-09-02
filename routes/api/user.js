@@ -44,8 +44,14 @@ router.get('/logout', function(req, res) {
 
 router.get('/current', function(req, res){
   // res.status(200).json({"id": "1"});
-  var userId = req.signedCookies.user.id
-  res.status(200).json({"userId": userId});
+  var userId = req.signedCookies.user;
+  if(typeof userId != 'undefined'){
+    console.log("USER ID: "+userId);
+    res.status(200).json({"userId": userId});
+  } else {
+    console.log("USER ID: "+userId);
+    res.status(500).json({"userId": userId});
+  }
 });
 
 module.exports = router;
