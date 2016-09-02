@@ -9,9 +9,16 @@ var sequelize = require('sequelize');
 var models = require("./server/models/");
 var PrettyError = require('pretty-error');
 var app = express();
+var cookieParser = require('cookie-parser');
+var cookieEncrypter = require('cookie-encrypter');
+var secretKey = 'foobarbaz12345';
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000
+
+// set cookie encryption
+app.use(cookieParser(secretKey));
+app.use(cookieEncrypter(secretKey));
 
 // initialize pretty-error
 var pe = new PrettyError();
