@@ -22,7 +22,7 @@ var NavBar = React.createClass({
     return (
       <div>
         <AppBar
-          title="SERN.js"
+          title="sern.js"
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onTitleTouchTap={this._goToIndex}
           onLeftIconButtonTouchTap={this._toggleAppDrawer}
