@@ -11,7 +11,8 @@ body {
   margin: 0; }
 
 main {
-  margin: 8px; }
+  margin: 8px;
+  padding-top: 32px; }
 
 .text-center {
   text-align: center; }
@@ -47,5 +48,8 @@ a.menu-link {
   top: 0;
   cursor: default;
   left: 0; }
+
+#home {
+  padding: 40px; }
 
 /*# sourceMappingURL=style.css.map*/
