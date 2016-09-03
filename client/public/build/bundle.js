@@ -35596,8 +35596,7 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // import react
-	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -35644,7 +35643,6 @@
 	      Promise.all(initAjax.map(function (promise) {
 	        return promise.reflect();
 	      })).then(function () {
-	        console.log("AND THEN");
 	        _store2.default.dispatch({
 	          type: "LOADING",
 	          isLoading: false
@@ -45828,7 +45826,8 @@
 	    );
 	  }
 	
-	}); // import jquery and enable sidenav
+	});
+	
 	exports.default = NavBar;
 
 /***/ },
@@ -50994,6 +50993,7 @@
 	    key: '_handleLogout',
 	    value: function _handleLogout(e, _handleClose) {
 	      e.preventDefault();
+	      // TODO: Use AjaxPromise.
 	      _jquery2.default.get("api/user/logout").done(function (data) {
 	        _store2.default.dispatch({ type: "CLOSE_DRAWER", open: false });
 	        setTimeout(function () {
@@ -92331,6 +92331,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _ajaxPromise = __webpack_require__(/*! ajax-promise */ 485);
+	
+	var _ajaxPromise2 = _interopRequireDefault(_ajaxPromise);
+	
 	var _store = __webpack_require__(/*! ../reducers/store.js */ 442);
 	
 	var _store2 = _interopRequireDefault(_store);
@@ -92359,10 +92363,8 @@
 	  _createClass(Counter, [{
 	    key: '_myAction',
 	    value: function _myAction() {
-	      fetch('/api/counter/increment').then(function (response) {
-	        return response.json();
-	      }).then(function (json) {
-	        var integer = parseInt(json.updatedValue);
+	      _ajaxPromise2.default.get('/api/counter/increment').then(function (response) {
+	        var integer = parseInt(response.updatedValue);
 	        _store2.default.dispatch({
 	          type: "INCREMENT",
 	          amount: integer
@@ -92474,6 +92476,7 @@
 	
 	  _submit: function _submit(e) {
 	    e.preventDefault();
+	    // TODO: Use AjaxPromise.
 	    _jquery2.default.post("api/user/login", (0, _jquery2.default)("#login-form").serialize()).done(function (data) {
 	      console.log(data);
 	      _store2.default.dispatch({
@@ -92562,6 +92565,7 @@
 	
 	  _submit: function _submit(e) {
 	    e.preventDefault();
+	    // TODO: Use AjaxPromise.
 	    _jquery2.default.post("api/user/signup", (0, _jquery2.default)("#signup-form").serialize()).done(function (data) {
 	      console.log(data);
 	      _store2.default.dispatch({
@@ -92630,11 +92634,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _jquery = __webpack_require__(/*! jquery */ 397);
-	
-	var _jquery2 = _interopRequireDefault(_jquery);
-	
 	var _reactRouter = __webpack_require__(/*! react-router */ 175);
+	
+	var _ajaxPromise = __webpack_require__(/*! ajax-promise */ 485);
+	
+	var _ajaxPromise2 = _interopRequireDefault(_ajaxPromise);
 	
 	var _store = __webpack_require__(/*! ../reducers/store.js */ 442);
 	
@@ -92649,41 +92653,56 @@
 	
 	
 	  componentDidMount: function componentDidMount() {
-	    fetch('/api/user/index').then(function (response) {
-	      return response.json();
-	    }).then(function (users) {
+	    if (!this.props.users) {
+	      // TODO: More robust way of determining loading state.
 	      _store2.default.dispatch({
-	        type: "LOAD_USERS",
-	        users: users
+	        type: "LOADING",
+	        isLoading: true
 	      });
-	    }).catch(function (errors) {
-	      console.log("Users errors", errors);
-	    });
+	
+	      _ajaxPromise2.default.get('/api/user').then(function (response) {
+	        console.log("load users", response);
+	        _store2.default.dispatch({
+	          type: "LOAD_USERS",
+	          users: response
+	        });
+	        _store2.default.dispatch({
+	          type: "LOADING",
+	          isLoading: false
+	        });
+	      }).catch(function (err) {
+	        console.log("/api/user/index error", err);
+	        _store2.default.dispatch({
+	          type: "LOADING",
+	          isLoading: false
+	        });
+	      });
+	    }
+	  },
+	
+	  _renderUser: function _renderUser(user) {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'row', key: user.id },
+	      _react2.default.createElement(
+	        _materialUi.Card,
+	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
+	        _react2.default.createElement(_materialUi.CardTitle, { title: user.email_address }),
+	        _react2.default.createElement(
+	          _materialUi.CardText,
+	          null,
+	          'Created at: ',
+	          user.createdAt
+	        )
+	      )
+	    );
 	  },
 	
 	  render: function render() {
-	    var user = {
-	      email_address: "pooo!"
-	    };
-	    console.log("props.users", this.props.users);
-	
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'users-table' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'row' },
-	        _react2.default.createElement(
-	          _materialUi.Card,
-	          { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
-	          _react2.default.createElement(_materialUi.CardTitle, { title: user.email_address }),
-	          _react2.default.createElement(
-	            _materialUi.CardText,
-	            null,
-	            'Hello'
-	          )
-	        )
-	      )
+	      this.props.users ? this.props.users.map(this._renderUser) : null
 	    );
 	  }
 	});
