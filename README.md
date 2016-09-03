@@ -1,3 +1,5 @@
+![alt text](https://s3-us-west-2.amazonaws.com/sernjs/sernlogo.jpg "sernlogo")
+
 #Welcome to SERN.JS Stack
 
 SERN.JS is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS and NodeJS based applications.
