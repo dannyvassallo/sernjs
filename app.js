@@ -1,4 +1,5 @@
 var express = require('express');
+var session = require('express-session');
 var http = require('http');
 var path = require('path');
 var reload = require('reload');
@@ -9,22 +10,32 @@ var sequelize = require('sequelize');
 var models = require("./server/models/");
 var PrettyError = require('pretty-error');
 var app = express();
-var cookieParser = require('cookie-parser');
-var cookieEncrypter = require('cookie-encrypter');
 var secretKey = process.env.SECRET_KEY;
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000
 
-// set cookie encryption
-app.use(cookieParser(secretKey));
-app.use(cookieEncrypter(secretKey));
+app.use(session({
+  secret: secretKey,
+  signed: true,
+  duration: 300000,
+  activeDuration: 300000,
+  maxAge: 300000
+}));
+
+app.use(function(req, res, next) {
+  req.session.counter || (req.session.counter = 0);
+  console.log("session", req.session);
+  console.log("userId", req.session.user);
+  console.log("counter", ++req.session.counter);
+  next();
+})
 
 // initialize pretty-error
 var pe = new PrettyError();
 pe.start();
 // SET PORT FOR HEROKU DEPLOYMENT
-app.set('port', (process.env.PORT || PORT_NUM));
+app.set('port', process.env.PORT || PORT_NUM);
 app.use(logger('dev'));
 app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies

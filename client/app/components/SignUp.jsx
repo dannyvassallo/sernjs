@@ -17,7 +17,7 @@ var SignUp = React.createClass({
         });
       })
       .fail(function(data){
-        console.log(data);
+        console.log("Signup error", data);
       });
   },
 

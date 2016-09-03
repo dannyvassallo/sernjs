@@ -7,7 +7,8 @@ function appStore(state, action) {
       counter: 0,
       drawerOpen: false,
       user: null,
-      isLoading: true
+      isLoading: true,
+      users: null
     }
   }
   switch (action.type) {
@@ -26,6 +27,8 @@ function appStore(state, action) {
       return { ...state, user: action.user }
     case 'LOADING':
       return { ...state, isLoading: action.isLoading }
+    case 'LOAD_USERS':
+      return { ...state, users: action.users }
     default:
       return state
   }

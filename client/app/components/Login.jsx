@@ -8,7 +8,7 @@ var Login = React.createClass({
 
   _submit: function(e) {
     e.preventDefault();
-    $.post( "api/user/login", $("#login-form").serialize())
+    $.post("api/user/login", $("#login-form").serialize())
       .done(function(data){
         console.log(data);
         Store.dispatch({
@@ -17,7 +17,7 @@ var Login = React.createClass({
         });
       })
       .fail(function(data){
-        console.log(data);
+        console.log("Login error", data);
       });
   },
 

@@ -47,6 +47,7 @@ class DrawerLeft extends React.Component {
           {
             this.props.user ?  (
               [
+                <Link to="users" key="uesrs" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Users</MenuItem></Link>,
                 <Link to="/" key="logout" className="menu-link"><MenuItem onTouchTap={this._handleLogout}>Log Out</MenuItem></Link>
               ]
             ) : (

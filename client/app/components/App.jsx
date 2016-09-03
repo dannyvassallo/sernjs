@@ -22,32 +22,36 @@ class App extends React.Component {
   }
 
   componentDidMount (){
-    var initialUser = AjaxPromise
-      .get('/api/user/current')
-      .then(function (response) {
-        console.log(response);
-        Store.dispatch({
-          type: "INITIAL_USER",
-          user: response
-        });
-      })
-      .catch(function(err){
-        console.log("error");
-      });
-    var initialCounterValue = AjaxPromise
-      .get('/api/counter/value')
-      .then(function (response) {
-        console.log(response);
-        let initialValue = parseInt(response.initialValue)
-        Store.dispatch({
-          type: "DEFAULT_VALUE",
-          initialValue: initialValue
-        });
-      })
-      .catch(function(err){
-        console.log("error");
-      });
-    Promise.all([initialCounterValue, initialUser].map(function(promise){return promise.reflect();})).then(function(){
+    var initAjax = [
+      AjaxPromise
+        .get('/api/user/current')
+        .then(function (response) {
+          console.log(response);
+          Store.dispatch({
+            type: "INITIAL_USER",
+            user: response
+          });
+        })
+        .catch(function(err){
+          console.log("/api/user/current error", err);
+        }),
+
+      AjaxPromise
+        .get('/api/counter/value')
+        .then(function (response) {
+          console.log(response);
+          let initialValue = parseInt(response.initialValue)
+          Store.dispatch({
+            type: "DEFAULT_VALUE",
+            initialValue: initialValue
+          });
+        })
+        .catch(function(err){
+          console.log("/api/counter/value error", err);
+        })
+    ];
+
+    Promise.all(initAjax.map(function(promise){return promise.reflect();})).then(function(){
       console.log("AND THEN");
       Store.dispatch({
         type: "LOADING",
