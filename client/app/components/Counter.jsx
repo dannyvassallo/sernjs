@@ -1,15 +1,14 @@
 import React from 'react';
+import AjaxPromise from 'ajax-promise';
 import Store from '../reducers/store.js';
 import RaisedButton from 'material-ui/RaisedButton';
 
 class Counter extends React.Component {
 
   _myAction (){
-    fetch('/api/counter/increment')
+    AjaxPromise.get('/api/counter/increment')
       .then(function(response) {
-        return response.json()
-      }).then(function(json) {
-        let integer = parseInt(json.updatedValue)
+        let integer = parseInt(response.updatedValue)
         Store.dispatch({
           type: "INCREMENT",
           amount: integer

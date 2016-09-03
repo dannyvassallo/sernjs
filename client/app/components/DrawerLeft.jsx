@@ -17,7 +17,8 @@ class DrawerLeft extends React.Component {
 
   _handleLogout(e, _handleClose){
     e.preventDefault();
-    $.get( "api/user/logout")
+    // TODO: Use AjaxPromise.
+    $.get("api/user/logout")
       .done(function(data){
         Store.dispatch({type: "CLOSE_DRAWER",open: false});
         setTimeout(function(){

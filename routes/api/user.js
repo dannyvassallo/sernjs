@@ -7,14 +7,11 @@ var counterValue = 0;
 
 function setEncryptedUser(loggedInUser, req, res) {
   console.log("setEncryptedUser" + loggedInUser);
-  req.session.user = loggedInUser.id;
+  req.session.userId = loggedInUser.id;
 }
 
-router.get('/index', function(req, res){
+router.get('/', function(req, res){
   var userId = sessionHelper.currentUserId(req);
-  // var userId = 1;
-  console.log("users - user id", req.session.user);
-  console.log("req.session", req.session, req.session.user, userId);
 
   if (userId) {
     models.User.findAll()
@@ -30,8 +27,9 @@ router.get('/index', function(req, res){
 });
 
 router.post('/login', function(req, res){
-  var email = req.body.email,
-  password = req.body.password;
+  var email = req.body.email
+    , password = req.body.password;
+
   console.log("Email is: " + email);
   console.log("Password is: " + password);
   models.User.findOne({where: { email_address: email, password: password}})
@@ -51,8 +49,9 @@ router.post('/login', function(req, res){
 });
 
 router.post('/signup', function(req, res){
-  var email = req.body.email,
-  password = req.body.password;
+  var email = req.body.email
+    , password = req.body.password;
+
   models.User.create({
     email_address: email,
     password: password
@@ -66,10 +65,9 @@ router.post('/signup', function(req, res){
   });
 });
 
-// TODO: Shouldn't this be AJAX?
 router.get('/logout', function(req, res) {
-  res.clearCookie('user');
-  res.redirect('/');
+  delete req.session.userId;
+  res.status(200).end();
 });
 
 router.get('/current', function(req, res){

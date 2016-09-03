@@ -23,14 +23,6 @@ app.use(session({
   maxAge: 300000
 }));
 
-app.use(function(req, res, next) {
-  req.session.counter || (req.session.counter = 0);
-  console.log("session", req.session);
-  console.log("userId", req.session.user);
-  console.log("counter", ++req.session.counter);
-  next();
-})
-
 // initialize pretty-error
 var pe = new PrettyError();
 pe.start();
@@ -48,6 +40,7 @@ app.use(express.static(path.join(__dirname, './client/public/build/')));
 // API Routes
 app.use('/api/counter', require('./routes/api/counter.js'));
 app.use('/api/user', require('./routes/api/user.js'));
+
 // Index Routes
 app.use('*', require('./routes/index.js'));
 

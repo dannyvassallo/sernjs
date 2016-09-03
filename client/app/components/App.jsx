@@ -1,7 +1,6 @@
-// import react
 import $ from "jquery";
 import React from 'react';
-import {render} from 'react-dom';
+import { render } from 'react-dom';
 import NavBar from './NavBar.jsx';
 import Store from '../reducers/store.js';
 import AjaxPromise from 'ajax-promise';
@@ -52,7 +51,6 @@ class App extends React.Component {
     ];
 
     Promise.all(initAjax.map(function(promise){return promise.reflect();})).then(function(){
-      console.log("AND THEN");
       Store.dispatch({
         type: "LOADING",
         isLoading: false
