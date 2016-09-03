@@ -2,19 +2,14 @@ import React from 'react';
 import { Link } from 'react-router';
 import AjaxPromise from 'ajax-promise';
 import Store from '../reducers/store.js';
+import loadingUntil from '../reducers/loading.js';
 import { Card, CardTitle, CardText, RaisedButton, TextField } from 'material-ui';
 
 var Users = React.createClass({
 
   componentDidMount: function() {
     if (!this.props.users) {
-      // TODO: More robust way of determining loading state.
-      Store.dispatch({
-        type: "LOADING",
-        isLoading: true
-      });
-
-      AjaxPromise
+      let fetchUsers = AjaxPromise
         .get('/api/user')
         .then(function (response) {
           console.log("load users", response);
@@ -22,18 +17,12 @@ var Users = React.createClass({
             type: "LOAD_USERS",
             users: response
           });
-          Store.dispatch({
-            type: "LOADING",
-            isLoading: false
-          });
         })
         .catch(function(err){
           console.log("/api/user/index error", err);
-          Store.dispatch({
-            type: "LOADING",
-            isLoading: false
-          });
-        })
+        });
+
+      loadingUntil(fetchUsers);
     }
   },
 

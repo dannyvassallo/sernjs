@@ -35,6 +35,7 @@
     "file-loader": "^0.9.0",
     "foreman": "^1.4.1",
     "jquery": "^3.1.0",
+    "lodash": "^4.15.0",
     "material-ui": "^0.15.4",
     "morgan": "^1.7.0",
     "node-sass": "^3.8.0",
