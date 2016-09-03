@@ -9,9 +9,17 @@ var sequelize = require('sequelize');
 var models = require("./server/models/");
 var PrettyError = require('pretty-error');
 var app = express();
+var cookieParser = require('cookie-parser');
+var cookieEncrypter = require('cookie-encrypter');
+var secretKey = process.env.SECRET_KEY;
+console.log(secretKey);
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000
+
+// set cookie encryption
+app.use(cookieParser(secretKey));
+app.use(cookieEncrypter(secretKey));
 
 // initialize pretty-error
 var pe = new PrettyError();
@@ -20,12 +28,16 @@ pe.start();
 app.set('port', (process.env.PORT || PORT_NUM));
 app.use(logger('dev'));
 app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
 app.use(express.static(path.join(__dirname, './client/public/')));
 app.use(express.static(path.join(__dirname, './client/public/build/')));
 
 // API Routes
 app.use('/api/counter', require('./routes/api/counter.js'));
+app.use('/api/user', require('./routes/api/user.js'));
 // Index Routes
 app.use('*', require('./routes/index.js'));
 

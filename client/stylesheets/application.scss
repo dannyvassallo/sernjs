@@ -6,7 +6,7 @@
 }
 
 html { font-family: 'Roboto', sans-serif; }
-body { @extend .disable-highlight; margin: 0; }
+body { @extend .disable-highlight; margin: 0;}
 main { margin: 8px; }
 
 .text-center{
@@ -16,4 +16,18 @@ main { margin: 8px; }
 a.menu-link{
   text-decoration: none;
   color: inherit;
+}
+
+.container-fluid {
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+}
+.wrap {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
 }
