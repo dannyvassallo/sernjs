@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card } from 'material-ui';
 import Counter from './Counter.jsx';
 
 var Home = React.createClass({
@@ -6,19 +7,11 @@ var Home = React.createClass({
       return (
         <div>
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <h2>Index</h2>
-              <p>Cras facilisis urna ornare ex volutpat, et
-              convallis erat elementum. Ut aliquam, ipsum vitae
-              gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-              metus nec massa. Maecenas hendrerit laoreet augue
-              nec molestie. Cum sociis natoque penatibus et magnis
-              dis parturient montes, nascetur ridiculus mus.</p>
-
-              <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
-            </div>
+            <Card id="home" className="col-xs-12 col-sm-offset-2 col-sm-8  col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6">
+              <img className="full-w" src="https://s3-us-west-2.amazonaws.com/sernjs/sernlogosmall.jpg" />
+              <Counter counter={this.props.counter}/>
+            </Card>
           </div>
-          <Counter counter={this.props.counter}/>
         </div>
       );
     }

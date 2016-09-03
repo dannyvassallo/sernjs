@@ -12,7 +12,6 @@ var app = express();
 var cookieParser = require('cookie-parser');
 var cookieEncrypter = require('cookie-encrypter');
 var secretKey = process.env.SECRET_KEY;
-console.log(secretKey);
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000

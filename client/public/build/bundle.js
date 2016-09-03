@@ -45734,8 +45734,8 @@
 	      'div',
 	      null,
 	      _react2.default.createElement(_AppBar2.default, {
-	        title: 'SERN.js',
-	        iconClassNameRight: 'muidocs-icon-navigation-expand-more',
+	        title: 'sern.js',
+	        iconClassNameRight: 'logo',
 	        onTitleTouchTap: this._goToIndex,
 	        onLeftIconButtonTouchTap: this._toggleAppDrawer
 	      }),
@@ -70109,6 +70109,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _materialUi = __webpack_require__(/*! material-ui */ 523);
+	
 	var _Counter = __webpack_require__(/*! ./Counter.jsx */ 518);
 	
 	var _Counter2 = _interopRequireDefault(_Counter);
@@ -70126,26 +70128,12 @@
 	        'div',
 	        { className: 'row' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' },
-	          _react2.default.createElement(
-	            'h2',
-	            null,
-	            'Index'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Duis a turpis sed lacus dapibus elementum sed eu lectus.'
-	          )
+	          _materialUi.Card,
+	          { id: 'home', className: 'col-xs-12 col-sm-offset-2 col-sm-8  col-md-offset-2 col-md-8 col-lg-offset-3 col-lg-6' },
+	          _react2.default.createElement('img', { className: 'full-w', src: 'https://s3-us-west-2.amazonaws.com/sernjs/sernlogosmall.jpg' }),
+	          _react2.default.createElement(_Counter2.default, { counter: this.props.counter })
 	        )
-	      ),
-	      _react2.default.createElement(_Counter2.default, { counter: this.props.counter })
+	      )
 	    );
 	  }
 	});

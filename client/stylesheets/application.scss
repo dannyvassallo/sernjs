@@ -7,7 +7,10 @@
 
 html { font-family: 'Roboto', sans-serif; }
 body { @extend .disable-highlight; margin: 0;}
-main { margin: 8px; }
+main {
+  margin: 8px;
+  padding-top: 32px;
+}
 
 .text-center{
   text-align: center;
@@ -30,4 +33,25 @@ a.menu-link{
   box-sizing: border-box;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.full-w{
+  width: 100%;
+  height: auto;
+}
+
+.logo{
+  background-size: cover;
+  background-position: center center;
+  background-image: url('https://s3-us-west-2.amazonaws.com/sernjs/badge.png');
+  width: 48px !important;
+  height: 48px !important;
+  position: absolute !important;
+  top: 0;
+  cursor: default;
+  left: 0;
+}
+
+#home{
+  padding: 40px;
 }
