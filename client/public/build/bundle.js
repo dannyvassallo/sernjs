@@ -45735,7 +45735,7 @@
 	      null,
 	      _react2.default.createElement(_AppBar2.default, {
 	        title: 'sern.js',
-	        iconClassNameRight: 'muidocs-icon-navigation-expand-more',
+	        iconClassNameRight: 'logo',
 	        onTitleTouchTap: this._goToIndex,
 	        onLeftIconButtonTouchTap: this._toggleAppDrawer
 	      }),

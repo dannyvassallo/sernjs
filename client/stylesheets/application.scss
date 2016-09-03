@@ -36,3 +36,15 @@ a.menu-link{
   width: 100%;
   height: auto;
 }
+
+.logo{
+  background-size: cover;
+  background-position: center center;
+  background-image: url('https://s3-us-west-2.amazonaws.com/sernjs/badge.png');
+  width: 48px !important;
+  height: 48px !important;
+  position: absolute !important;
+  top: 0;
+  cursor: default;
+  left: 0;
+}
