@@ -14,7 +14,8 @@ var Login = React.createClass({
         console.log(data);
         Store.dispatch({
           type: "USER_SESSION",
-          user: data
+          user: data,
+          snack: "Welcome back! We missed you :)"
         });
       })
       .fail(function(data){

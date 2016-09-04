@@ -22,7 +22,11 @@ class DrawerLeft extends React.Component {
       .done(function(data){
         Store.dispatch({type: "CLOSE_DRAWER",open: false});
         setTimeout(function(){
-          Store.dispatch({type: "USER_SESSION",user: null})
+          Store.dispatch({
+            type: "USER_SESSION",
+            user: null,
+            snack: "You're logged out. Have a nice day!"
+          });
         }, 100);
         browserHistory.push('/');
         console.log('logged out');

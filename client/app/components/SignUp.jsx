@@ -9,12 +9,13 @@ var SignUp = React.createClass({
   _submit: function(e) {
     e.preventDefault();
     // TODO: Use AjaxPromise.
-    $.post( "api/user/signup", $("#signup-form").serialize())
+    $.post("api/user/signup", $("#signup-form").serialize())
       .done(function(data){
         console.log(data);
         Store.dispatch({
           type: "USER_SESSION",
-          user: data
+          user: data,
+          snacks: ["You're signed in! Welcome.", "Have a nice day! Bye for now."]
         });
       })
       .fail(function(data){

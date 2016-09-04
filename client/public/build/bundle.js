@@ -35582,6 +35582,10 @@
 	
 	var _NavBar2 = _interopRequireDefault(_NavBar);
 	
+	var _MainSnackbar = __webpack_require__(/*! ./MainSnackbar.jsx */ 668);
+	
+	var _MainSnackbar2 = _interopRequireDefault(_MainSnackbar);
+	
 	var _store = __webpack_require__(/*! ../reducers/store.js */ 443);
 	
 	var _store2 = _interopRequireDefault(_store);
@@ -35671,7 +35675,8 @@
 	            { className: "wrap container-flud" },
 	            this.state.isLoading ? "Loading..." : this.props.children && _react2.default.cloneElement(this.props.children, this.state)
 	          )
-	        )
+	        ),
+	        _react2.default.createElement(_MainSnackbar2.default, this.state)
 	      );
 	    }
 	  }]);
@@ -66753,9 +66758,16 @@
 	      drawerOpen: false,
 	      user: null,
 	      isLoading: true,
-	      users: null
+	      users: null,
+	      snacks: []
 	    };
 	  }
+	
+	  // Set snacks.
+	  var newSnacks = action.snacks || [];
+	  if (action.snack) newSnacks.push(action.snack);
+	  if (newSnacks.length) state.snacks = state.snacks.concat(newSnacks);
+	
 	  switch (action.type) {
 	    case 'DEFAULT_VALUE':
 	      return _extends({}, state, { counter: action.initialValue });
@@ -66774,6 +66786,8 @@
 	      return _extends({}, state, { isLoading: action.isLoading });
 	    case 'LOAD_USERS':
 	      return _extends({}, state, { users: action.users });
+	    case 'HIDE_SNACKBAR':
+	      return _extends({}, state, { snacks: state.snacks.slice(1, state.snacks.length) });
 	    default:
 	      return state;
 	  }
@@ -67740,7 +67754,11 @@
 	      _jquery2.default.get("api/user/logout").done(function (data) {
 	        _store2.default.dispatch({ type: "CLOSE_DRAWER", open: false });
 	        setTimeout(function () {
-	          _store2.default.dispatch({ type: "USER_SESSION", user: null });
+	          _store2.default.dispatch({
+	            type: "USER_SESSION",
+	            user: null,
+	            snack: "You're logged out. Have a nice day!"
+	          });
 	        }, 100);
 	        _reactRouter.browserHistory.push('/');
 	        console.log('logged out');
@@ -109315,7 +109333,8 @@
 	      console.log(data);
 	      _store2.default.dispatch({
 	        type: "USER_SESSION",
-	        user: data
+	        user: data,
+	        snack: "Welcome back! We missed you :)"
 	      });
 	    }).fail(function (data) {
 	      console.log("Login error", data);
@@ -109404,7 +109423,8 @@
 	      console.log(data);
 	      _store2.default.dispatch({
 	        type: "USER_SESSION",
-	        user: data
+	        user: data,
+	        snacks: ["You're signed in! Welcome.", "Have a nice day! Bye for now."]
 	      });
 	    }).fail(function (data) {
 	      console.log("Signup error", data);
@@ -109913,6 +109933,56 @@
 	};
 	
 	module.exports = keyOf;
+
+/***/ },
+/* 668 */
+/*!************************************************!*\
+  !*** ./client/app/components/MainSnackbar.jsx ***!
+  \************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Snackbar = __webpack_require__(/*! material-ui/Snackbar */ 623);
+	
+	var _Snackbar2 = _interopRequireDefault(_Snackbar);
+	
+	var _store = __webpack_require__(/*! ../reducers/store.js */ 443);
+	
+	var _store2 = _interopRequireDefault(_store);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var MainSnackbar = _react2.default.createClass({
+	  displayName: 'MainSnackbar',
+	
+	
+	  _handleRequestClose: function _handleRequestClose(_method) {
+	    _store2.default.dispatch({
+	      type: "HIDE_SNACKBAR"
+	    });
+	  },
+	
+	  render: function render() {
+	    return _react2.default.createElement(_Snackbar2.default, {
+	      open: this.props.snacks.length > 0,
+	      message: this.props.snacks[0] || "",
+	      autoHideDuration: 3000,
+	      onRequestClose: this._handleRequestClose
+	    });
+	  }
+	
+	});
+	
+	exports.default = MainSnackbar;
 
 /***/ }
 /******/ ]);

@@ -3,6 +3,7 @@ import { each } from "lodash";
 import React from 'react';
 import { render } from 'react-dom';
 import NavBar from './NavBar.jsx';
+import MainSnackbar from './MainSnackbar.jsx';
 import Store from '../reducers/store.js';
 import loadingUntil from '../reducers/loading.js';
 import AjaxPromise from 'ajax-promise';
@@ -71,6 +72,7 @@ class App extends React.Component {
               {this.state.isLoading ? "Loading..." : this.props.children && React.cloneElement(this.props.children, this.state)}
             </div>
           </main>
+          <MainSnackbar {...this.state} />
         </div>
     );
   }
