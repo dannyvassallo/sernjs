@@ -1,5 +1,4 @@
 var express = require('express');
-var session = require('express-session');
 var http = require('http');
 var path = require('path');
 var reload = require('reload');
@@ -7,33 +6,38 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var watch = require('watch');
 var sequelize = require('sequelize');
-var models = require("./server/models/");
 var PrettyError = require('pretty-error');
-var app = express();
+var cookieParser = require('cookie-parser');
+var cookieEncrypter = require('cookie-encrypter');
+var models = require("./server/models/");
+
 var secretKey = process.env.SECRET_KEY;
+var app = express();
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
-var PORT_NUM = 5000
+var PORT_NUM = 5000;
 
-app.use(session({
-  secret: secretKey,
-  signed: true,
-  duration: 300000,
-  activeDuration: 300000,
-  maxAge: 300000
-}));
-
-// initialize pretty-error
+// Initialize pretty-error
 var pe = new PrettyError();
 pe.start();
-// SET PORT FOR HEROKU DEPLOYMENT
+
+// Set port for heroku deployment
 app.set('port', process.env.PORT || PORT_NUM);
 app.use(logger('dev'));
-app.use(bodyParser.json()); // Parses json, multi-part (file), url-encoded
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+
+// Parses json, multi-part (file), url-encoded
+app.use(bodyParser.json());
+
+// Support URL-encoded bodies
+app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+// Set cookie encryption
+app.use(cookieParser(secretKey));
+app.use(cookieEncrypter(secretKey));
+
+// Service static assets
 app.use(express.static(path.join(__dirname, './client/public/')));
 app.use(express.static(path.join(__dirname, './client/public/build/')));
 
@@ -44,7 +48,7 @@ app.use('/api/user', require('./routes/api/user.js'));
 // Index Routes
 app.use('*', require('./routes/index.js'));
 
-// sync models THEN start server
+// Sync models THEN start server
 models.sequelize.sync().then(function () {
 
   var server = http.createServer(app);
@@ -56,8 +60,8 @@ models.sequelize.sync().then(function () {
   var reloadServer = reload(server, app);
 
   watch.watchTree(__dirname + "/client", function (f, curr, prev) {
-      // Fire server-side reload event
-      reloadServer.reload();
+    // Fire server-side reload event
+    reloadServer.reload();
   });
 
 });
