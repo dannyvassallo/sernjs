@@ -17,11 +17,16 @@ class DrawerLeft extends React.Component {
 
   _handleLogout(e, _handleClose){
     e.preventDefault();
-    $.get( "api/user/logout")
+    // TODO: Use AjaxPromise.
+    $.get("api/user/logout")
       .done(function(data){
         Store.dispatch({type: "CLOSE_DRAWER",open: false});
         setTimeout(function(){
-          Store.dispatch({type: "USER_SESSION",user: null})
+          Store.dispatch({
+            type: "USER_SESSION",
+            user: null,
+            snack: "You're logged out. Have a nice day!"
+          });
         }, 100);
         browserHistory.push('/');
         console.log('logged out');
@@ -47,6 +52,7 @@ class DrawerLeft extends React.Component {
           {
             this.props.user ?  (
               [
+                <Link to="users" key="uesrs" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Users</MenuItem></Link>,
                 <Link to="/" key="logout" className="menu-link"><MenuItem onTouchTap={this._handleLogout}>Log Out</MenuItem></Link>
               ]
             ) : (

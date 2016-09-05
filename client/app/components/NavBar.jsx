@@ -1,6 +1,5 @@
-// import jquery and enable sidenav
 import React from 'react';
-import {Link, browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Store from '../reducers/store.js';
 import DrawerLeft from './DrawerLeft.jsx';

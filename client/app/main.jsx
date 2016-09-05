@@ -9,18 +9,32 @@ import Home from './components/Home.jsx';
 import About from './components/About.jsx';
 import Login from './components/Login.jsx';
 import SignUp from './components/SignUp.jsx';
+import Users from './components/Users.jsx';
 import Store from './reducers/store.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 const target = document.getElementById('app');
 
 injectTapEventPlugin();
 
-function checkCurrentUser(){
+function redirectIfSignedIn(){
   var state = Store.getState();
+  if(state.isLoading) return;
+
   if(state.user){
     browserHistory.replace('/');
   } else {
     console.log("User is not present");
+  }
+}
+
+function redirectUnlessSignedIn(){
+  var state = Store.getState();
+  if(state.isLoading) return;
+
+  if(state.user){
+    console.log("User is present");
+  } else {
+    browserHistory.replace('/');
   }
 }
 
@@ -36,8 +50,9 @@ var routes = ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="about" component={About} />
-        <Route path="login" component={Login} onChange={checkCurrentUser} onEnter={checkCurrentUser}/>
-        <Route path="signup" component={SignUp} onChange={checkCurrentUser} onEnter={checkCurrentUser}/>
+        <Route path="login" component={Login} onChange={redirectIfSignedIn} onEnter={redirectIfSignedIn}/>
+        <Route path="signup" component={SignUp} onChange={redirectIfSignedIn} onEnter={redirectIfSignedIn}/>
+        <Route path="users" component={Users} onChange={redirectUnlessSignedIn} onEnter={redirectUnlessSignedIn}/>
       </Route>
     </Router>
   </MuiThemeProvider>,

@@ -7,9 +7,17 @@ function appStore(state, action) {
       counter: 0,
       drawerOpen: false,
       user: null,
-      isLoading: true
+      isLoading: true,
+      users: null,
+      snacks: []
     }
   }
+
+  // Set snacks.
+  let newSnacks = action.snacks || [];
+  if (action.snack) newSnacks.push(action.snack);
+  if (newSnacks.length) state.snacks = state.snacks.concat(newSnacks);
+
   switch (action.type) {
     case 'DEFAULT_VALUE':
       return { ...state, counter: action.initialValue }
@@ -26,6 +34,10 @@ function appStore(state, action) {
       return { ...state, user: action.user }
     case 'LOADING':
       return { ...state, isLoading: action.isLoading }
+    case 'LOAD_USERS':
+      return { ...state, users: action.users }
+    case 'HIDE_SNACKBAR':
+      return { ...state, snacks: state.snacks.slice(1, state.snacks.length) }
     default:
       return state
   }
