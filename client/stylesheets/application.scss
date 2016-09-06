@@ -6,10 +6,15 @@
 }
 
 html { font-family: 'Roboto', sans-serif; }
-body { @extend .disable-highlight; margin: 0;}
+body { margin: 0;}
 main {
   margin: 8px;
   padding-top: 32px;
+}
+
+.navbar,
+button{
+  @extend .disable-highlight;
 }
 
 .text-center{

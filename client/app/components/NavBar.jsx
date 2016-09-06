@@ -19,7 +19,7 @@ var NavBar = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className="navbar">
         <AppBar
           title="sern.js"
           iconClassNameRight="logo"

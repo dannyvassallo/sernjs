@@ -62474,7 +62474,7 @@
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      null,
+	      { className: 'navbar' },
 	      _react2.default.createElement(_AppBar2.default, {
 	        title: 'sern.js',
 	        iconClassNameRight: 'logo',
