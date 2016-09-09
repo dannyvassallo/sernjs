@@ -109161,7 +109161,7 @@
 	      _react2.default.createElement(
 	        _materialUi.Card,
 	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6' },
-	        _react2.default.createElement(_materialUi.CardTitle, { title: user.email_address }),
+	        _react2.default.createElement(_materialUi.CardTitle, { title: user.email }),
 	        _react2.default.createElement(
 	          _materialUi.CardText,
 	          null,

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../../server/models');
+var validator = require('validator');
 var sessionHelper = require('../../server/helpers/session');
 
 var counterValue = 0;
@@ -23,7 +24,7 @@ router.post('/login', function(req, res){
   var email = req.body.email
     , password = req.body.password;
 
-  models.User.findOne({where: { email_address: email, password: password}})
+  models.User.findOne({where: { email: email, password: password}})
   .then(function(loggedInUser) {
     if (loggedInUser) {
       sessionHelper.setCurrentUserId(req, res, loggedInUser.id);
@@ -40,18 +41,23 @@ router.post('/login', function(req, res){
 
 router.post('/signup', function(req, res){
   var email = req.body.email
-    , password = req.body.password;
+    , password = req.body.password,
+    validateEmail = validator.isEmail(email);
 
-  models.User.create({
-    email_address: email,
-    password: password
-  }).then(function(newUser) {
-    sessionHelper.setCurrentUserId(req, res, newUser.id);
-    res.status(200).json(newUser);
-  })
-  .catch(function(error) {
-    res.status(500).json(error);
-  });
+  if(validateEmail){
+    models.User.create({
+      email: email,
+      password: password
+    }).then(function(newUser) {
+      sessionHelper.setCurrentUserId(req, res, newUser.id);
+      res.status(200).json(newUser);
+    })
+    .catch(function(error) {
+      res.status(500).json(error);
+    });
+  } else {
+    res.status(403).json({ errors: { user: ["invalid_email"] } });
+  }
 });
 
 router.get('/logout', function(req, res) {

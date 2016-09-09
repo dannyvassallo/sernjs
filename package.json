@@ -58,6 +58,7 @@
     "sequelize-cli": "^2.4.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "validator": "^5.6.0",
     "watch": "^0.19.1",
     "webpack": "^1.13.1",
     "whatwg-fetch": "^1.0.0"

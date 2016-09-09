@@ -8,10 +8,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email_address: {
-        type: Sequelize.STRING
+      email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       password: {
+        type: Sequelize.STRING
+      },
+      salt: {
         type: Sequelize.STRING
       },
       createdAt: {
