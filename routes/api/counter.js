@@ -4,9 +4,9 @@ var models  = require('../../server/models');
 var counterValue = 0;
 
 function findOrCreateNewCounter(){
-  models.Counter.findById(1).then(function(counter){
+  models.counter.findById(1).then(function(counter){
     if(counter == null){
-      var counter = models.Counter.create().then(function(newCounter) {
+      var counter = models.counter.create().then(function(newCounter) {
         console.log('Counter did not exist -- created one.');
       });
     } else {
@@ -16,7 +16,7 @@ function findOrCreateNewCounter(){
 }
 
 function updateCounterWithNewValue(){
-  models.Counter.findById(1).then(function (counter) {
+  models.counter.findById(1).then(function (counter) {
     if (counter) {
       var newValue = counter.count + 1
       console.log('NEW VALUE: '+ newValue);

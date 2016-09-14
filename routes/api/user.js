@@ -10,7 +10,7 @@ router.get('/', function(req, res){
   var userId = sessionHelper.currentUserId(req, res);
 
   if (userId) {
-    models.User.findAll()
+    models.user.findAll()
     .then(function(allUsers) {
       res.status(200).json(allUsers);
     });
@@ -24,7 +24,7 @@ router.post('/login', function(req, res){
   var email = req.body.email,
   password = req.body.password;
 
-  models.User.findOne({where: { email: email }})
+  models.user.findOne({where: { email: email }})
   .then(function(user) {
     if (user) {
       if(user.validPassword(password)){
@@ -48,7 +48,7 @@ router.post('/signup', function(req, res){
     validateEmail = validator.isEmail(email);
 
   if(validateEmail){
-    models.User.create({
+    models.user.create({
       email: email,
       password: password
     }).then(function(newUser) {

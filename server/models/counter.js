@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Counter = sequelize.define('Counter', {
+  var Counter = sequelize.define('counter', {
     count: DataTypes.INTEGER
   }, {
     classMethods: {

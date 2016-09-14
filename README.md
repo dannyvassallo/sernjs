@@ -45,8 +45,6 @@ npm install -g foreman
 npm install -g sequelize-cli
 #open the postgresql.app first
 psql -f sern.sql
-# migrate the counter model
-sequelize -m # || node_modules/.bin/sequelize -m
 #every other run after:
 #open the postgresql.app
 npm start
@@ -64,7 +62,7 @@ In the boilerplate, you can query the value of the counter model's count value a
 using the following example within the console:
 
 ```javascript
-db.Counter.findById(1).then(function(counter){console.log(counter.count)})
+db.counter.findById(1).then(function(counter){console.log(counter.count)})
 ```
 
 ###Heroku Deployment
@@ -128,7 +126,6 @@ Example User model Creation / Migration:
 
 ```
 sequelize model:create --name User --attributes username:string,email_address:string,password:string
-sequelize db:migrate
 ```
 
 Usage:
