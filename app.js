@@ -10,6 +10,8 @@ var PrettyError = require('pretty-error');
 var cookieParser = require('cookie-parser');
 var cookieEncrypter = require('cookie-encrypter');
 var models = require("./server/models/");
+var session = require('express-session');
+var passport = require('passport');
 
 var secretKey = process.env.SECRET_KEY;
 var app = express();
@@ -27,6 +29,11 @@ app.use(logger('dev'));
 
 // Parses json, multi-part (file), url-encoded
 app.use(bodyParser.json());
+
+// passport config
+app.use(session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Support URL-encoded bodies
 app.use(bodyParser.urlencoded({
