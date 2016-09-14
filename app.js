@@ -12,10 +12,10 @@ var cookieEncrypter = require('cookie-encrypter');
 var models = require("./server/models/");
 var session = require('express-session');
 var passport = require('passport');
-
 var cookieSecretKey = process.env.COOKIE_SECRET_KEY;
 var sessionSecretKey = process.env.SESSION_SECRET_KEY;
 var app = express();
+require('./server/config/passport')(app);
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
 var PORT_NUM = 5000;

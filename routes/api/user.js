@@ -3,13 +3,12 @@ var router = express.Router();
 var models = require('../../server/models');
 var validator = require('validator');
 var sessionHelper = require('../../server/helpers/session');
-
 var counterValue = 0;
-
+var passport = require("passport");
 router.get('/', function(req, res){
   var userId = sessionHelper.currentUserId(req, res);
 
-  if (userId) {
+  if(userId) {
     models.user.findAll()
     .then(function(allUsers) {
       res.status(200).json(allUsers);
@@ -20,32 +19,17 @@ router.get('/', function(req, res){
   }
 });
 
-router.post('/login', function(req, res){
-  var email = req.body.email,
-  password = req.body.password;
-
-  models.user.findOne({where: { email: email }})
-  .then(function(user) {
-    if (user) {
-      if(user.validPassword(password)){
-        sessionHelper.setCurrentUserId(req, res, user.id);
-        res.status(200).json(user);
-      } else {
-        res.status(403).json({ errors: { user: ["incorrect_password"] } });
-      }
-    } else {
-      res.status(403).json({ errors: { user: ["does_not_exist"] } });
-    }
-  })
-  .catch(function(error) {
-    res.status(500).json(error);
-  });
+router.post('/login', passport.authenticate('local'), function(req, res){
+  sessionHelper.setCurrentUserId(req, res, req.user.id);
+  res.status(200).json(req.user);
 });
 
+
+
 router.post('/signup', function(req, res){
-  var email = req.body.email
-    , password = req.body.password,
-    validateEmail = validator.isEmail(email);
+  var email = req.body.email,
+  password = req.body.password,
+  validateEmail = validator.isEmail(email);
 
   if(validateEmail){
     models.user.create({
@@ -64,8 +48,10 @@ router.post('/signup', function(req, res){
 });
 
 router.get('/logout', function(req, res) {
-  sessionHelper.clearCurrentUserId(req, res);
-  res.status(200).end();
+  req.session.destroy(function (err) {
+    sessionHelper.clearCurrentUserId(req, res);
+    res.status(200).end();
+  });
 });
 
 router.get('/current', function(req, res){
