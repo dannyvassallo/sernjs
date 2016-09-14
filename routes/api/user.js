@@ -21,16 +21,19 @@ router.get('/', function(req, res){
 });
 
 router.post('/login', function(req, res){
-  var email = req.body.email
-    , password = req.body.password;
+  var email = req.body.email,
+  password = req.body.password;
 
-  models.User.findOne({where: { email: email, password: password}})
-  .then(function(loggedInUser) {
-    if (loggedInUser) {
-      sessionHelper.setCurrentUserId(req, res, loggedInUser.id);
-      res.status(200).json(loggedInUser);
-    }
-    else {
+  models.User.findOne({where: { email: email }})
+  .then(function(user) {
+    if (user) {
+      if(user.validPassword(password)){
+        sessionHelper.setCurrentUserId(req, res, user.id);
+        res.status(200).json(user);
+      } else {
+        res.status(403).json({ errors: { user: ["incorrect_password"] } });
+      }
+    } else {
       res.status(403).json({ errors: { user: ["does_not_exist"] } });
     }
   })

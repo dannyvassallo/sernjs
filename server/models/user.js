@@ -7,31 +7,19 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
-    classMethods: {
-      validPassword: function(password, passwd, done, user){
-        bcrypt.compare(password, passwd, function(err, isMatch){
-          if(isMatch){
-            return done(null, user);
-          } else {
-            return done(null, false);
-          }
-          if(err){
-            console.log(err);
-          }
-        });
-      }
+    freezeTableName: true,
+    instanceMethods: {
+      generateHash: function(password) {
+        return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+      },
+      validPassword: function(password) {
+        return bcrypt.compareSync(password, this.password);
+      },
     }
   });
 
   User.hook('beforeCreate', function(user, options) {
-    var salt = bcrypt.genSalt(12, function(err, salt){
-      return salt;
-    });
-    bcrypt.hash(user.password, salt, null, function(err, hash){
-      if(err) return next(err);
-      user.password = hash;
-      return fn(null, user);
-    });
+    user.password = user.generateHash(user.password);
   });
 
   return User;
