@@ -13,7 +13,8 @@ var models = require("./server/models/");
 var session = require('express-session');
 var passport = require('passport');
 
-var secretKey = process.env.SECRET_KEY;
+var cookieSecretKey = process.env.COOKIE_SECRET_KEY;
+var sessionSecretKey = process.env.SESSION_SECRET_KEY;
 var app = express();
 var BUILD_DIR = path.resolve(__dirname, './client/public/build');
 var APP_DIR = path.resolve(__dirname, './client/app');
@@ -31,7 +32,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 
 // passport config
-app.use(session({ secret: 'keyboard cat' }));
+app.use(session({ secret: sessionSecretKey }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -41,8 +42,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Set cookie encryption
-app.use(cookieParser(secretKey));
-app.use(cookieEncrypter(secretKey));
+app.use(cookieParser(cookieSecretKey));
+app.use(cookieEncrypter(cookieSecretKey));
 
 // Service static assets
 app.use(express.static(path.join(__dirname, './client/public/')));
