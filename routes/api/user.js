@@ -5,6 +5,7 @@ var validator = require('validator');
 var sessionHelper = require('../../server/helpers/session');
 var counterValue = 0;
 var passport = require("passport");
+
 router.get('/', function(req, res){
   var userId = sessionHelper.currentUserId(req, res);
 
@@ -19,12 +20,27 @@ router.get('/', function(req, res){
   }
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res){
-  sessionHelper.setCurrentUserId(req, res, req.user.id);
-  res.status(200).json(req.user);
+// router.post('/login', passport.authenticate('local'), function(req, res){
+//   var userId = req.session.passport.user.id;
+//   console.log("RETURNED USERID= "+userId);
+//   sessionHelper.setCurrentUserId(req, res, userId);
+//   res.status(200).json(req.user);
+// });
+
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(error, user, info) {
+    if(error) {
+      return res.status(500).json(error);
+    }
+    if(!user) {
+      return res.status(401).json(info.message);
+    }
+    var userId = user.id;
+    console.log("RETURNED USERID= "+userId);
+    sessionHelper.setCurrentUserId(req, res, userId);
+    res.status(200).json(user);
+  })(req, res, next);
 });
-
-
 
 router.post('/signup', function(req, res){
   var email = req.body.email,
@@ -48,13 +64,13 @@ router.post('/signup', function(req, res){
 });
 
 router.get('/logout', function(req, res) {
-  req.session.destroy(function (err) {
-    sessionHelper.clearCurrentUserId(req, res);
-    res.status(200).end();
-  });
+  req.session.destroy();
+  sessionHelper.clearCurrentUserId(req, res);
+  res.status(200).end();
 });
 
 router.get('/current', function(req, res){
+  console.log("CURRENT USER ROUTE HIT");
   var userId = sessionHelper.currentUserId(req, res);
 
   if(userId){
