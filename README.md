@@ -2,7 +2,7 @@
 
 #Welcome to sern.js Stack
 
-sern.js is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS and NodeJS based applications.
+sern.js is a Full-Stack Javascript for an easy starting point with SequelizeJS, ExpressJS, PassportJS, ReactJS and NodeJS based applications.
 
 It is designed to give you a quick and organized way to start developing SERN based web apps.
 
@@ -16,6 +16,7 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * React
   * Redux
   * SASS
+  * Passport
   * Nodemon
   * Reload
   * Sequelize
