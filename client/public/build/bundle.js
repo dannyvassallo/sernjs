@@ -542,9 +542,9 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _About = __webpack_require__(/*! ./components/About.jsx */ 651);
+	var _Docs = __webpack_require__(/*! ./components/Docs.jsx */ 651);
 	
-	var _About2 = _interopRequireDefault(_About);
+	var _Docs2 = _interopRequireDefault(_Docs);
 	
 	var _Login = __webpack_require__(/*! ./components/Login.jsx */ 652);
 	
@@ -610,7 +610,7 @@
 	      _reactRouter.Route,
 	      { path: '/', component: _App2.default },
 	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-	      _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: 'docs', component: _Docs2.default }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'login', component: _Login2.default, onChange: redirectIfSignedIn, onEnter: redirectIfSignedIn }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _SignUp2.default, onChange: redirectIfSignedIn, onEnter: redirectIfSignedIn }),
 	      _react2.default.createElement(_reactRouter.Route, { path: 'users', component: _Users2.default, onChange: redirectUnlessSignedIn, onEnter: redirectUnlessSignedIn })
@@ -67448,11 +67448,11 @@
 	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
-	            { to: 'about', className: 'menu-link' },
+	            { to: 'docs', className: 'menu-link' },
 	            _react2.default.createElement(
 	              _MenuItem2.default,
 	              { onTouchTap: this._handleClose },
-	              'About'
+	              'Documentation'
 	            )
 	          ),
 	          this.props.user ? [_react2.default.createElement(
@@ -108883,9 +108883,9 @@
 
 /***/ },
 /* 651 */
-/*!*****************************************!*\
-  !*** ./client/app/components/About.jsx ***!
-  \*****************************************/
+/*!****************************************!*\
+  !*** ./client/app/components/Docs.jsx ***!
+  \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -108896,8 +108896,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var About = _react2.default.createClass({
-	  displayName: "About",
+	var Docs = _react2.default.createClass({
+	  displayName: "Docs",
 	
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -108909,7 +108909,7 @@
 	        _react2.default.createElement(
 	          "h2",
 	          null,
-	          "About"
+	          "Docs"
 	        ),
 	        _react2.default.createElement(
 	          "p",
@@ -108921,7 +108921,7 @@
 	  }
 	});
 	
-	module.exports = About;
+	module.exports = Docs;
 
 /***/ },
 /* 652 */

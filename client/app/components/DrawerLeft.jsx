@@ -48,7 +48,7 @@ class DrawerLeft extends React.Component {
           disableSwipeToOpen={true}
         >
           <Link to="/" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Home</MenuItem></Link>
-          <Link to="about" className="menu-link"><MenuItem onTouchTap={this._handleClose}>About</MenuItem></Link>
+          <Link to="docs" className="menu-link"><MenuItem onTouchTap={this._handleClose}>Documentation</MenuItem></Link>
           {
             this.props.user ?  (
               [

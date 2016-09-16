@@ -6,7 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import App from './components/App.jsx';
 import Home from './components/Home.jsx';
-import About from './components/About.jsx';
+import Docs from './components/Docs.jsx';
 import Login from './components/Login.jsx';
 import SignUp from './components/SignUp.jsx';
 import Users from './components/Users.jsx';
@@ -49,7 +49,7 @@ var routes = ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={Home}/>
-        <Route path="about" component={About} />
+        <Route path="docs" component={Docs} />
         <Route path="login" component={Login} onChange={redirectIfSignedIn} onEnter={redirectIfSignedIn}/>
         <Route path="signup" component={SignUp} onChange={redirectIfSignedIn} onEnter={redirectIfSignedIn}/>
         <Route path="users" component={Users} onChange={redirectUnlessSignedIn} onEnter={redirectUnlessSignedIn}/>
