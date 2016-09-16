@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var models  = require('../../server/models');
+var models  = require('../../../server/models');
 var counterValue = 0;
 
 function findOrCreateNewCounter(){

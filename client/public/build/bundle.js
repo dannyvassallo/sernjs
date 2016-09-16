@@ -109052,7 +109052,7 @@
 	      _store2.default.dispatch({
 	        type: "USER_SESSION",
 	        user: data,
-	        snacks: ["You're signed in! Welcome.", "Have a nice day! Bye for now."]
+	        snacks: ["You're signed in! Welcome.", "Thank you for creating an account!"]
 	      });
 	    }).fail(function (data) {
 	      console.log("Signup error", data);

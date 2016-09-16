@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var models = require('../../server/models');
-var sessionHelper = require('../../server/helpers/session');
+var models = require('../../../server/models');
+var sessionHelper = require('../../../server/helpers/session');
 var counterValue = 0;
 var passport = require("passport");
 
