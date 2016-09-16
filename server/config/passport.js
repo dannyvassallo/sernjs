@@ -2,7 +2,6 @@
 
 var passport = require('passport'),
 LocalStrategy = require('passport-local').Strategy,
-CreateStrategy = require('passport-create').Strategy,
 models = require('../../server/models');
 
 module.exports = function(app){
