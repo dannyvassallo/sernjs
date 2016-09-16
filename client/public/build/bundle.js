@@ -546,15 +546,15 @@
 	
 	var _Docs2 = _interopRequireDefault(_Docs);
 	
-	var _Login = __webpack_require__(/*! ./components/Login.jsx */ 652);
+	var _Login = __webpack_require__(/*! ./components/Login.jsx */ 653);
 	
 	var _Login2 = _interopRequireDefault(_Login);
 	
-	var _SignUp = __webpack_require__(/*! ./components/SignUp.jsx */ 653);
+	var _SignUp = __webpack_require__(/*! ./components/SignUp.jsx */ 654);
 	
 	var _SignUp2 = _interopRequireDefault(_SignUp);
 	
-	var _Users = __webpack_require__(/*! ./components/Users.jsx */ 654);
+	var _Users = __webpack_require__(/*! ./components/Users.jsx */ 655);
 	
 	var _Users2 = _interopRequireDefault(_Users);
 	
@@ -562,7 +562,7 @@
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	var _reactTapEventPlugin = __webpack_require__(/*! react-tap-event-plugin */ 655);
+	var _reactTapEventPlugin = __webpack_require__(/*! react-tap-event-plugin */ 656);
 	
 	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
 	
@@ -108888,34 +108888,46 @@
   \****************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	var _react = __webpack_require__(/*! react */ 4);
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _ajaxPromise = __webpack_require__(/*! ajax-promise */ 488);
+	
+	var _ajaxPromise2 = _interopRequireDefault(_ajaxPromise);
+	
+	var _jquery = __webpack_require__(/*! jquery */ 396);
+	
+	var _jquery2 = _interopRequireDefault(_jquery);
+	
+	var _materialUi = __webpack_require__(/*! material-ui */ 526);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Docs = _react2.default.createClass({
-	  displayName: "Docs",
+	  displayName: 'Docs',
+	
+	
+	  componentDidMount: function componentDidMount() {
+	    var markdown;
+	    _ajaxPromise2.default.get('api/readme/json').then(function (response) {
+	      console.log(response);
+	      (0, _jquery2.default)('#readme').html(response.parsedMarkdown);
+	    }).catch(function (err) {
+	      console.log("/readme error", err);
+	    });
+	  },
 	
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
-	      { className: "row" },
+	      'div',
+	      { className: 'row' },
 	      _react2.default.createElement(
-	        "div",
-	        { className: "col-xs-12 col-sm-12 col-md-12 col-lg-12" },
-	        _react2.default.createElement(
-	          "h2",
-	          null,
-	          "Docs"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut aliquam, ipsum vitae gravida suscipit, metus dui bibendum est, eget rhoncus nibh metus nec massa. Maecenas hendrerit laoreet augue nec molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
-	        )
+	        _materialUi.Card,
+	        { className: 'col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8' },
+	        _react2.default.createElement('div', { id: 'readme' })
 	      )
 	    );
 	  }
@@ -108924,7 +108936,8 @@
 	module.exports = Docs;
 
 /***/ },
-/* 652 */
+/* 652 */,
+/* 653 */
 /*!*****************************************!*\
   !*** ./client/app/components/Login.jsx ***!
   \*****************************************/
@@ -109014,7 +109027,7 @@
 	module.exports = Login;
 
 /***/ },
-/* 653 */
+/* 654 */
 /*!******************************************!*\
   !*** ./client/app/components/SignUp.jsx ***!
   \******************************************/
@@ -109104,7 +109117,7 @@
 	module.exports = SignUp;
 
 /***/ },
-/* 654 */
+/* 655 */
 /*!*****************************************!*\
   !*** ./client/app/components/Users.jsx ***!
   \*****************************************/
@@ -109184,14 +109197,14 @@
 	module.exports = Users;
 
 /***/ },
-/* 655 */
+/* 656 */
 /*!**************************************************************!*\
   !*** ./~/react-tap-event-plugin/src/injectTapEventPlugin.js ***!
   \**************************************************************/
 /***/ function(module, exports, __webpack_require__) {
 
-	var invariant = __webpack_require__(/*! fbjs/lib/invariant */ 656);
-	var defaultClickRejectionStrategy = __webpack_require__(/*! ./defaultClickRejectionStrategy */ 657);
+	var invariant = __webpack_require__(/*! fbjs/lib/invariant */ 657);
+	var defaultClickRejectionStrategy = __webpack_require__(/*! ./defaultClickRejectionStrategy */ 658);
 	
 	var alreadyInjected = false;
 	
@@ -109213,13 +109226,13 @@
 	  alreadyInjected = true;
 	
 	  __webpack_require__(/*! react/lib/EventPluginHub */ 46).injection.injectEventPluginsByName({
-	    'TapEventPlugin':       __webpack_require__(/*! ./TapEventPlugin.js */ 658)(shouldRejectClick)
+	    'TapEventPlugin':       __webpack_require__(/*! ./TapEventPlugin.js */ 659)(shouldRejectClick)
 	  });
 	};
 
 
 /***/ },
-/* 656 */
+/* 657 */
 /*!**********************************************************!*\
   !*** ./~/react-tap-event-plugin/~/fbjs/lib/invariant.js ***!
   \**********************************************************/
@@ -109276,7 +109289,7 @@
 	module.exports = invariant;
 
 /***/ },
-/* 657 */
+/* 658 */
 /*!***********************************************************************!*\
   !*** ./~/react-tap-event-plugin/src/defaultClickRejectionStrategy.js ***!
   \***********************************************************************/
@@ -109290,7 +109303,7 @@
 
 
 /***/ },
-/* 658 */
+/* 659 */
 /*!********************************************************!*\
   !*** ./~/react-tap-event-plugin/src/TapEventPlugin.js ***!
   \********************************************************/
@@ -109321,10 +109334,10 @@
 	var EventPluginUtils = __webpack_require__(/*! react/lib/EventPluginUtils */ 48);
 	var EventPropagators = __webpack_require__(/*! react/lib/EventPropagators */ 45);
 	var SyntheticUIEvent = __webpack_require__(/*! react/lib/SyntheticUIEvent */ 79);
-	var TouchEventUtils = __webpack_require__(/*! ./TouchEventUtils */ 659);
+	var TouchEventUtils = __webpack_require__(/*! ./TouchEventUtils */ 660);
 	var ViewportMetrics = __webpack_require__(/*! react/lib/ViewportMetrics */ 80);
 	
-	var keyOf = __webpack_require__(/*! fbjs/lib/keyOf */ 660);
+	var keyOf = __webpack_require__(/*! fbjs/lib/keyOf */ 661);
 	var topLevelTypes = EventConstants.topLevelTypes;
 	
 	var isStartish = EventPluginUtils.isStartish;
@@ -109469,7 +109482,7 @@
 
 
 /***/ },
-/* 659 */
+/* 660 */
 /*!*********************************************************!*\
   !*** ./~/react-tap-event-plugin/src/TouchEventUtils.js ***!
   \*********************************************************/
@@ -109520,7 +109533,7 @@
 
 
 /***/ },
-/* 660 */
+/* 661 */
 /*!******************************************************!*\
   !*** ./~/react-tap-event-plugin/~/fbjs/lib/keyOf.js ***!
   \******************************************************/

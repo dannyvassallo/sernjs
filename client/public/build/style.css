@@ -35,7 +35,7 @@ a.menu-link {
   max-width: 1200px;
   margin: 0 auto; }
 
-.full-w {
+.full-w, #readme img {
   width: 100%;
   height: auto; }
 
@@ -52,5 +52,14 @@ a.menu-link {
 
 #home {
   padding: 40px; }
+
+#readme {
+  margin: 0 auto;
+  padding: 10px; }
+  #readme pre {
+    overflow-x: scroll;
+    background-color: black; }
+    #readme pre code {
+      color: white; }
 
 /*# sourceMappingURL=style.css.map*/

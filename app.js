@@ -53,6 +53,7 @@ app.use(passport.session());
 // API Routes
 app.use('/api/counter', require('./routes/api/v1/counter.js'));
 app.use('/api/user', require('./routes/api/v1/user.js'));
+app.use('/api/readme', require('./routes/api/v1/readme.js'));
 
 // Index Routes
 app.use('*', require('./routes/index.js'));
