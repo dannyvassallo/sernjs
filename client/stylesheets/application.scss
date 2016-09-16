@@ -60,3 +60,19 @@ a.menu-link{
 #home{
   padding: 40px;
 }
+
+#readme{
+  margin: 0 auto;
+  padding: 10px;
+  img{
+    @extend .full-w;
+  }
+  pre{
+    overflow-x: scroll;
+    padding: 16px;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+  }
+}

@@ -1,12 +1,12 @@
 ![alt text](https://s3-us-west-2.amazonaws.com/sernjs/sernlogo.jpg "sernlogo")
 
-#Welcome to sern.js Stack
+# Welcome to sern.js Stack
 
-sern.js is a Full-Stack Javascript for an easy starting point with SequilizeJS, ExpressJS, ReactJS and NodeJS based applications.
+sern.js is a Full-Stack Javascript for an easy starting point with SequelizeJS, ExpressJS, PassportJS, ReactJS and NodeJS based applications.
 
 It is designed to give you a quick and organized way to start developing SERN based web apps.
 
-###Technologies Used
+### Technologies Used
 
   * NodeJS
   * NPM
@@ -16,6 +16,7 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * React
   * Redux
   * SASS
+  * Passport
   * Nodemon
   * Reload
   * Sequelize
@@ -26,7 +27,7 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * Material UI
   * flexboxgrid
 
-###Getting Started In Development
+### Getting Started In Development
 
 First, duplicate the included `.env.example` file and rename it to `.env`
 Generate or rename the secret key and then proceed with the terminal commands.
@@ -65,7 +66,7 @@ using the following example within the console:
 db.counter.findById(1).then(function(counter){console.log(counter.count)})
 ```
 
-###Heroku Deployment
+### Heroku Deployment
 
 In your terminal run the following:
 
@@ -81,7 +82,7 @@ git push heroku branchname:master
 heroku config:push
 ```
 
-###Material UI & flexboxgrid
+### Material UI & flexboxgrid
 
 For documentation and component examples in Material UI visit the homepage [here](http://www.material-ui.com/#/).
 
@@ -89,13 +90,13 @@ Flexboxgrid uses the same convention as bootstrap's grid but you can also view t
 docs [here](http://flexboxgrid.com/) for it's additional uses.
 
 
-###Sass/Scss Setup
+### Sass/Scss Setup
 
 The `application.scss` file is available in `client/stylesheets/application.scss`.
 Feel free to alter this file or `@import` additional `sass/scss` files from the
 `stylesheets` folder.
 
-###Sequelize [(docs)](https://github.com/sequelize/cli)
+### Sequelize [(docs)](https://github.com/sequelize/cli)
 
 We use PostgreSQL. On OSX you can set this up pretty quickly by using the [Postgres.app](http://postgresapp.com/).
 
@@ -156,7 +157,7 @@ Available tasks
   version                Prints the version number. Aliases: v
 ```
 
-###Cool Tip
+### Cool Tip
 
 If you manipulate the folder structure on OSX, you may wind up with `.DS_Store`
 files. They're already git ignored but if you want to completely remove all of them from the project:
