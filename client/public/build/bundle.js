@@ -590,7 +590,6 @@
 	  if (state.user) {
 	    console.log("User is present");
 	  } else {
-	    console.log("User is NOT present");
 	    _reactRouter.browserHistory.replace('/');
 	  }
 	}
@@ -67405,7 +67404,6 @@
 	      e.preventDefault();
 	      // TODO: Use AjaxPromise.
 	      _jquery2.default.get("api/user/logout").done(function (data) {
-	        console.log('made request');
 	        _store2.default.dispatch({ type: "CLOSE_DRAWER", open: false });
 	        setTimeout(function () {
 	          _store2.default.dispatch({
@@ -67414,7 +67412,7 @@
 	            snack: "You're logged out. Have a nice day!"
 	          });
 	        }, 100);
-	        _reactRouter.browserHistory.push('/login');
+	        _reactRouter.browserHistory.push('/');
 	        console.log('logged out');
 	      }).fail(function (data) {
 	        console.log(data);

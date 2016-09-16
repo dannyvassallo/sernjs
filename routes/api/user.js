@@ -1,66 +1,41 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../../server/models');
-var validator = require('validator');
 var sessionHelper = require('../../server/helpers/session');
 var counterValue = 0;
 var passport = require("passport");
 
+
+function signInUser(req, res, error, user, info){
+  if(error) { return res.status(500).json(error); }
+  if(!user) { return res.status(401).json(info.message); }
+  var userId = user.id;
+  sessionHelper.setCurrentUserId(req, res, userId);
+  res.status(200).json(user);
+}
+
 router.get('/', function(req, res){
   var userId = sessionHelper.currentUserId(req, res);
-
   if(userId) {
     models.user.findAll()
     .then(function(allUsers) {
       res.status(200).json(allUsers);
     });
-  }
-  else {
+  } else {
     res.status(403).json({ errors: { user: ["must_be_signed_in"] } });
   }
 });
 
-// router.post('/login', passport.authenticate('local'), function(req, res){
-//   var userId = req.session.passport.user.id;
-//   console.log("RETURNED USERID= "+userId);
-//   sessionHelper.setCurrentUserId(req, res, userId);
-//   res.status(200).json(req.user);
-// });
-
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(error, user, info) {
-    if(error) {
-      return res.status(500).json(error);
-    }
-    if(!user) {
-      return res.status(401).json(info.message);
-    }
-    var userId = user.id;
-    console.log("RETURNED USERID= "+userId);
-    sessionHelper.setCurrentUserId(req, res, userId);
-    res.status(200).json(user);
+    signInUser(req, res, error, user, info);
   })(req, res, next);
 });
 
-router.post('/signup', function(req, res){
-  var email = req.body.email,
-  password = req.body.password,
-  validateEmail = validator.isEmail(email);
-
-  if(validateEmail){
-    models.user.create({
-      email: email,
-      password: password
-    }).then(function(newUser) {
-      sessionHelper.setCurrentUserId(req, res, newUser.id);
-      res.status(200).json(newUser);
-    })
-    .catch(function(error) {
-      res.status(500).json(error);
-    });
-  } else {
-    res.status(403).json({ errors: { user: ["invalid_email"] } });
-  }
+router.post('/signup', function(req, res, next){
+  passport.authenticate('local-signup', function(error, user, info) {
+    signInUser(req, res, error, user, info);
+  })(req, res, next);
 });
 
 router.get('/logout', function(req, res) {
@@ -70,9 +45,7 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/current', function(req, res){
-  console.log("CURRENT USER ROUTE HIT");
   var userId = sessionHelper.currentUserId(req, res);
-
   if(userId){
     res.status(200).json({"userId": userId});
   } else {
