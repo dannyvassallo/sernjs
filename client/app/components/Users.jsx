@@ -30,7 +30,7 @@ var Users = React.createClass({
     return (
       <div className="row" key={user.id}>
         <Card className="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-          <CardTitle title={user.email_address} />
+          <CardTitle title={user.email} />
           <CardText>Created at: {user.createdAt}</CardText>
         </Card>
       </div>
