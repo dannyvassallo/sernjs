@@ -1,0 +1,79 @@
+
+.disable-highlight{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+html { font-family: 'Roboto', sans-serif; }
+body { margin: 0;}
+main {
+  margin: 8px;
+  padding-top: 32px;
+}
+
+.navbar,
+button{
+  @extend .disable-highlight;
+}
+
+.text-center{
+  text-align: center;
+}
+
+a.menu-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+.container-fluid {
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.container, .container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+}
+.wrap {
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.full-w{
+  width: 100%;
+  height: auto;
+}
+
+.logo{
+  background-size: cover;
+  background-position: center center;
+  background-image: url('https://s3-us-west-2.amazonaws.com/sernjs/badge.png');
+  width: 48px !important;
+  height: 48px !important;
+  position: absolute !important;
+  top: 0;
+  cursor: default;
+  left: 0;
+}
+
+#home{
+  padding: 40px;
+}
+
+#readme{
+  margin: 0 auto;
+  padding: 10px;
+  img{
+    @extend .full-w;
+  }
+  pre{
+    overflow-x: scroll;
+    padding: 16px;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border-radius: 3px;
+  }
+}

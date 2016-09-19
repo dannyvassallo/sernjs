@@ -26,6 +26,7 @@ It is designed to give you a quick and organized way to start developing SERN ba
   * Pretty Error
   * Material UI
   * flexboxgrid
+  * fontawesome
 
 ### Getting Started In Development
 
