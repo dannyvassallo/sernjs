@@ -1,7 +1,27 @@
 import React from 'react';
+import $ from 'jquery';
+import Store from '../reducers/store.js';
 import { Link, browserHistory } from 'react-router';
 
 var Footer = React.createClass({
+
+  _handleLogout(e){
+    e.preventDefault();
+    // TODO: Use AjaxPromise.
+    $.get("api/user/logout")
+      .done(function(data){
+        Store.dispatch({
+          type: "USER_SESSION",
+          user: null,
+          snack: "You're logged out. Have a nice day!"
+        });
+        browserHistory.push('/');
+        console.log('logged out');
+      })
+      .fail(function(data){
+        console.log(data);
+      });
+  },
 
   render: function() {
     return (
@@ -10,13 +30,13 @@ var Footer = React.createClass({
           <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <h2>Links</h2>
             <ul>
-              <li><Link to="/" >Home</Link></li>
-              <li><Link to="docs" >Documentation</Link></li>
+              <li><Link key="home" to="/" >Home</Link></li>
+              <li><Link key="docs" to="docs" >Documentation</Link></li>
               {
                 this.props.user ?  (
                   [
                     <li><Link to="users" key="users" >Users</Link></li>,
-                    <li><Link to="/" key="logout" >Logout</Link></li>
+                    <li><Link to="/" key="logout" onTouchTap={this._handleLogout} >Logout</Link></li>
                   ]
                 ) : (
                   [
