@@ -3,6 +3,7 @@ import { each } from "lodash";
 import React from 'react';
 import { render } from 'react-dom';
 import NavBar from './NavBar.jsx';
+import Footer from './Footer.jsx';
 import MainSnackbar from './MainSnackbar.jsx';
 import Store from '../reducers/store.js';
 import loadingUntil from '../reducers/loading.js';
@@ -67,11 +68,12 @@ class App extends React.Component {
     return (
         <div>
           <NavBar {...this.state} />
-          <main>
+          <main className="site-content">
             <div className="wrap container-flud">
               {this.state.isLoading ? "Loading..." : this.props.children && React.cloneElement(this.props.children, this.state)}
             </div>
           </main>
+          <Footer {...this.state} />
           <MainSnackbar {...this.state} />
         </div>
     );
