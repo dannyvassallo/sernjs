@@ -69,7 +69,7 @@ class App extends React.Component {
         <div>
           <NavBar {...this.state} />
           <main className="site-content">
-            <div className="wrap container-flud">
+            <div className="wrap container-fluid">
               {this.state.isLoading ? "Loading..." : this.props.children && React.cloneElement(this.props.children, this.state)}
             </div>
           </main>
